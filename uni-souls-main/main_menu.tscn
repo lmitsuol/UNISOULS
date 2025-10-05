@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dslr0uyea8lg4"]
+[gd_scene load_steps=10 format=3 uid="uid://dslr0uyea8lg4"]
 
 [ext_resource type="Script" uid="uid://b0iiourdvhbsa" path="res://main_menu.gd" id="1_fu7sn"]
 [ext_resource type="Texture2D" uid="uid://dj7yxe6ixs78a" path="res://assets/Final/Background_0.png" id="2_jix8l"]
-[ext_resource type="FontFile" uid="uid://cu1cumga6pjeb" path="res://Broken Up.ttf" id="3_glbon"]
+[ext_resource type="FontFile" uid="uid://cu1cumga6pjeb" path="res://Fonts/Broken Up.ttf" id="3_glbon"]
+[ext_resource type="AudioStream" uid="uid://dl7171a2a4c4m" path="res://Musica/Música para Unisouls.mp3" id="4_jix8l"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nlkkf"]
 texture = ExtResource("2_jix8l")
@@ -135,6 +136,9 @@ theme_override_font_sizes/font_size = 78
 text = "UniSouls"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_jix8l")
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_options_pressed"]

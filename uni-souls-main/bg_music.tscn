@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddx62mseipphu"]
+
+[ext_resource type="AudioStream" uid="uid://dl7171a2a4c4m" path="res://Musica/Música para Unisouls.mp3" id="1_p1osb"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_p1osb")
+autoplay = true
