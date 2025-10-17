@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1vqpgo5qybk5"]
+
+[ext_resource type="Texture2D" uid="uid://dj7yxe6ixs78a" path="res://assets/Final/Background_0.png" id="1_qn0ad"]
+[ext_resource type="Texture2D" uid="uid://b0vf1x8qtyf66" path="res://assets/Final/Background_1.png" id="2_4mx25"]
+
+[node name="Background 1" type="Parallax2D"]
+
+[node name="BackgroundLua" type="ParallaxLayer" parent="."]
+show_behind_parent = true
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundLua"]
+position = Vector2(218, 126)
+scale = Vector2(1.5677084, 1.6057692)
+texture = ExtResource("1_qn0ad")
+
+[node name="BackgroundCasas" type="ParallaxLayer" parent="."]
+motion_offset = Vector2(0.3, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundCasas"]
+position = Vector2(221.99998, 122)
+scale = Vector2(1.5781251, 1.5865384)
+texture = ExtResource("2_4mx25")
