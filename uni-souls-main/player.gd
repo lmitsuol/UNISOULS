@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const SPEED = 130.0
-const JUMP_VELOCITY = -300.0
+const SPEED = 150.0
+const JUMP_VELOCITY = -330.0
 
 @onready var anim = $AnimatedSprite2D
 
@@ -25,6 +25,10 @@ func _physics_process(delta: float) -> void:
 		is_attacking = false
 
 	# --- PULO ---
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+		
+	# --- PULO LONGO ---
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
