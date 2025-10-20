@@ -1,14 +1,14 @@
 [gd_scene load_steps=18 format=3 uid="uid://bkwlgq2nxb41n"]
 
-[ext_resource type="Texture2D" uid="uid://dj7yxe6ixs78a" path="res://assets/Final/Background_0.png" id="1_pq57r"]
 [ext_resource type="Script" uid="uid://8u8scuftcwa1" path="res://Menu/gameover.gd" id="1_r4hdr"]
 [ext_resource type="FontFile" uid="uid://cu1cumga6pjeb" path="res://Fonts/Broken Up.ttf" id="2_283ng"]
-[ext_resource type="AudioStream" uid="uid://dl7171a2a4c4m" path="res://Music/Música para Unisouls.mp3" id="3_r4hdr"]
+[ext_resource type="Texture2D" uid="uid://ujmhsbuf2yge" path="res://assets/Final/Bg-gameover.png" id="2_r4hdr"]
 [ext_resource type="Script" uid="uid://b7q155bmjlvx4" path="res://Music/audio_control.gd" id="4_0w34b"]
+[ext_resource type="AudioStream" uid="uid://ddai6jtfmlv8o" path="res://Music/GameOver_Song.mp3" id="4_r4hdr"]
 [ext_resource type="Script" uid="uid://b1lc3cr73suep" path="res://Menu/fullscreen_control.gd" id="5_05nnf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_63m4x"]
-texture = ExtResource("1_pq57r")
+texture = ExtResource("2_r4hdr")
 modulate_color = Color(0.637843, 0.637843, 0.637843, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_36pc6"]
@@ -173,14 +173,15 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_constants/shadow_offset_y = 10
 theme_override_fonts/font = ExtResource("2_283ng")
 theme_override_font_sizes/font_size = 78
-text = "UniSouls"
+text = "GameOver "
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_r4hdr")
+stream = ExtResource("4_r4hdr")
 autoplay = true
 bus = &"Music"
+parameters/looping = false
 
 [node name="Options" type="Panel" parent="."]
 layout_mode = 1

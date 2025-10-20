@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://djgchbyja6x3g"]
+[gd_scene load_steps=25 format=3 uid="uid://djgchbyja6x3g"]
 
 [ext_resource type="Script" uid="uid://bwcoufsdebfvi" path="res://Scenes/game.gd" id="1_o5yvi"]
 [ext_resource type="Texture2D" uid="uid://dulphyi17os5n" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_yqjtg"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cgy672fe8b3n3" path="res://Player/player.tscn" id="10_vtaks"]
 [ext_resource type="PackedScene" uid="uid://bm162q0x76dii" path="res://HUD/lives_gui.tscn" id="12_rku1e"]
 [ext_resource type="PackedScene" uid="uid://dt8o0aa1jrcv1" path="res://Menu/pause_menu.tscn" id="13_rfjv2"]
+[ext_resource type="AudioStream" uid="uid://dl7171a2a4c4m" path="res://Music/Música para Unisouls.mp3" id="14_1phco"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -3733,5 +3734,10 @@ shape = SubResource("RectangleShape2D_rku1e")
 [node name="Pause_menu" type="CanvasLayer" parent="."]
 
 [node name="Pause_menu" parent="Pause_menu" instance=ExtResource("13_rfjv2")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_1phco")
+autoplay = true
+parameters/looping = false
 
 [connection signal="body_entered" from="Interact" to="." method="_on_interact_body_entered"]

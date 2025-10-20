@@ -152,6 +152,7 @@ vertical_alignment = 1
 stream = ExtResource("4_jix8l")
 autoplay = true
 bus = &"Music"
+parameters/looping = false
 
 [node name="Options" type="Panel" parent="."]
 layout_mode = 1
