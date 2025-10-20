@@ -10,13 +10,13 @@ show_behind_parent = true
 
 [node name="Sprite2D" type="Sprite2D" parent="BackgroundLua"]
 position = Vector2(218, 126)
-scale = Vector2(1.5677084, 1.6057692)
+scale = Vector2(1.56771, 1.60577)
 texture = ExtResource("1_qn0ad")
 
 [node name="BackgroundCasas" type="ParallaxLayer" parent="."]
 motion_offset = Vector2(0.3, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="BackgroundCasas"]
-position = Vector2(221.99998, 122)
-scale = Vector2(1.5781251, 1.5865384)
+position = Vector2(222, 122)
+scale = Vector2(1.57813, 1.58654)
 texture = ExtResource("2_4mx25")
