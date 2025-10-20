@@ -1,2 +1,0 @@
-# UniSouls
-MetroidVania Godot Game
