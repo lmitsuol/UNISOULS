@@ -1,0 +1,152 @@
+[gd_scene load_steps=22 format=3 uid="uid://bhidh1cac4oju"]
+
+[ext_resource type="Texture2D" uid="uid://cm1kfhcvbbdur" path="res://assets/Inimigos/Bat/noBKG_BatDeath_strip.png" id="1_2k0u4"]
+[ext_resource type="Texture2D" uid="uid://btywuo3ykvu5j" path="res://assets/Inimigos/Bat/noBKG_BatFlight_strip.png" id="2_hl87t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3181p"]
+atlas = ExtResource("1_2k0u4")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjw2w"]
+atlas = ExtResource("1_2k0u4")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7jk6"]
+atlas = ExtResource("1_2k0u4")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnyri"]
+atlas = ExtResource("1_2k0u4")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrhkd"]
+atlas = ExtResource("1_2k0u4")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnnjf"]
+atlas = ExtResource("1_2k0u4")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56qmq"]
+atlas = ExtResource("1_2k0u4")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_heyon"]
+atlas = ExtResource("1_2k0u4")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6yxd"]
+atlas = ExtResource("1_2k0u4")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51xwh"]
+atlas = ExtResource("1_2k0u4")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77cku"]
+atlas = ExtResource("2_hl87t")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4ctg"]
+atlas = ExtResource("2_hl87t")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mu8tw"]
+atlas = ExtResource("2_hl87t")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmbkt"]
+atlas = ExtResource("2_hl87t")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wowlf"]
+atlas = ExtResource("2_hl87t")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ss3t7"]
+atlas = ExtResource("2_hl87t")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r78s7"]
+atlas = ExtResource("2_hl87t")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4i1sj"]
+atlas = ExtResource("2_hl87t")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1y5ex"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3181p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjw2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7jk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnyri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrhkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnnjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56qmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_heyon")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6yxd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51xwh")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77cku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4ctg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mu8tw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmbkt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wowlf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ss3t7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r78s7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4i1sj")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 12.0
+}]
+
+[node name="Enemy-Bat" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1y5ex")
+animation = &"Death"
+frame_progress = 0.0631072
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
