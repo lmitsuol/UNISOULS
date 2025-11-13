@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://y3k1rfcq57b"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_52ouu"]
+file = "res://Video/Vídeo-do-WhatsApp-de-2025-11-13-à_s_-20.09.24_76810c71_1.ogv"
+
+[node name="Intro" type="Node2D"]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 1915.0
+offset_bottom = 1086.0
+scale = Vector2(0.6, 0.6)
+stream = SubResource("VideoStreamTheora_52ouu")
+autoplay = true
