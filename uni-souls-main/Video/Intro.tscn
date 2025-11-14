@@ -6,10 +6,13 @@ file = "res://Video/Vídeo-do-WhatsApp-de-2025-11-13-à_s_-20.09.24_76810c71_1.o
 [node name="Intro" type="Node2D"]
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-offset_left = 7.0
-offset_top = 6.0
-offset_right = 1915.0
-offset_bottom = 1086.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 33.0
+offset_top = 17.0
+offset_right = 1835.0
+offset_bottom = 1025.0
+grow_horizontal = 2
 scale = Vector2(0.6, 0.6)
 stream = SubResource("VideoStreamTheora_52ouu")
 autoplay = true
