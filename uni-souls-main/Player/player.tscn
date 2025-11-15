@@ -512,7 +512,7 @@ animation = &"Attack 1"
 
 [node name="Camera2D" type="Camera2D" parent="AnimatedSprite2D"]
 position = Vector2(4, -20)
-zoom = Vector2(4.5, 4.5)
+zoom = Vector2(5, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -48)

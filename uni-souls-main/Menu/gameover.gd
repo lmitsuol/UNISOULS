@@ -12,6 +12,7 @@ func _ready():
 	options.visible = false
 
 func _on_playagain_pressed() -> void:
+	Global.player_lives = 5
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
 
 func _on_options_pressed() -> void:

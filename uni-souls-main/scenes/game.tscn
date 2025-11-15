@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://djgchbyja6x3g"]
+[gd_scene load_steps=29 format=3 uid="uid://djgchbyja6x3g"]
 
 [ext_resource type="Script" uid="uid://bwcoufsdebfvi" path="res://Scenes/game.gd" id="1_o5yvi"]
 [ext_resource type="Texture2D" uid="uid://dulphyi17os5n" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_yqjtg"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dol8vtl73d4fx" path="res://Scenes/parallax_floresta.tscn" id="14_trtic"]
 [ext_resource type="PackedScene" uid="uid://bhidh1cac4oju" path="res://Enemies/enemy_bat.tscn" id="15_nnt18"]
 [ext_resource type="PackedScene" uid="uid://bbs6yk65l2l6g" path="res://Enemies/enemy_wolf.tscn" id="16_ewbju"]
+[ext_resource type="Script" uid="uid://bmw624fp331kg" path="res://Scenes/caveportal.gd" id="17_ewbju"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -3710,6 +3711,9 @@ sources/8 = SubResource("TileSetAtlasSource_37s47")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rku1e"]
 size = Vector2(4869, 39)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nnt18"]
+size = Vector2(22, 153)
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_o5yvi")
 
@@ -3751,5 +3755,12 @@ position = Vector2(636, 143)
 
 [node name="Enemy-Wolf" parent="." instance=ExtResource("16_ewbju")]
 position = Vector2(162, 169)
+
+[node name="CavePortal" type="Area2D" parent="."]
+script = ExtResource("17_ewbju")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CavePortal"]
+position = Vector2(2936, 12.5)
+shape = SubResource("RectangleShape2D_nnt18")
 
 [connection signal="body_entered" from="Interact" to="." method="_on_interact_body_entered"]
