@@ -11,10 +11,8 @@
 texture = ExtResource("2_r4hdr")
 modulate_color = Color(0.637843, 0.637843, 0.637843, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_36pc6"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r16jb"]
-bg_color = Color(0.362829, 0.36283, 0.362829, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ymaco"]
+bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -31,8 +29,8 @@ corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ymaco"]
-bg_color = Color(1, 1, 1, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r16jb"]
+bg_color = Color(0.362829, 0.36283, 0.362829, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -40,10 +38,10 @@ corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4f0kn"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_36pc6"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xvbhf"]
-bg_color = Color(0.362829, 0.36283, 0.362829, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0dclu"]
+bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -60,14 +58,16 @@ corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0dclu"]
-bg_color = Color(1, 1, 1, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xvbhf"]
+bg_color = Color(0.362829, 0.36283, 0.362829, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4f0kn"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_k125p"]
 color = Color(1, 1, 1, 1)
@@ -114,46 +114,46 @@ theme_override_constants/separation = 8
 [node name="Button" type="Button" parent="MainButtons"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_283ng")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/focus = SubResource("StyleBoxEmpty_36pc6")
-theme_override_styles/hover = SubResource("StyleBoxFlat_r16jb")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_m3gxu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ymaco")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m3gxu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r16jb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_36pc6")
 text = "Play Again"
 
 [node name="Button2" type="Button" parent="MainButtons"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_283ng")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/focus = SubResource("StyleBoxEmpty_36pc6")
-theme_override_styles/hover = SubResource("StyleBoxFlat_r16jb")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_m3gxu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ymaco")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m3gxu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r16jb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_36pc6")
 text = "Options"
 
 [node name="Button3" type="Button" parent="MainButtons"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_283ng")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/focus = SubResource("StyleBoxEmpty_36pc6")
-theme_override_styles/hover = SubResource("StyleBoxFlat_r16jb")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_m3gxu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ymaco")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m3gxu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r16jb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_36pc6")
 text = "Exit"
 
 [node name="Label" type="Label" parent="."]
@@ -223,16 +223,16 @@ offset_top = 184.0
 offset_right = 303.5
 offset_bottom = 212.0
 size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_283ng")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/focus = SubResource("StyleBoxEmpty_4f0kn")
-theme_override_styles/hover = SubResource("StyleBoxFlat_xvbhf")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_11fm4")
 theme_override_styles/normal = SubResource("StyleBoxFlat_0dclu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_11fm4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xvbhf")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4f0kn")
 text = "Back"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Options"]
