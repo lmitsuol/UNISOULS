@@ -9,3 +9,4 @@ Projeto de jogo MetroidVania para projeto de faculdade
 | Bernardo Santos Vieira          | 1072415392   | [BernardoSVieira](https://github.com/BernardoSVieira) |
 | Guilherme Mitsuo Honda          | 1072416697   | [lmitsuol](https://github.com/lmitsuol) |
 | Victor Hasse                    | 10724111755  | [victorhasse](https://github.com/victorhasse) |
+| Ester da Rosa Mariani           | 10725115450  | [Estermrn](https://github.com/Estermrn) |
