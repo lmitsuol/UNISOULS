@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://bhidh1cac4oju"]
 
-[ext_resource type="Texture2D" uid="uid://cm1kfhcvbbdur" path="res://assets/Inimigos/Bat/noBKG_BatDeath_strip.png" id="1_2k0u4"]
-[ext_resource type="Texture2D" uid="uid://btywuo3ykvu5j" path="res://assets/Inimigos/Bat/noBKG_BatFlight_strip.png" id="2_hl87t"]
+[ext_resource type="Texture2D" uid="uid://cm1kfhcvbbdur" path="res://assets/Enemies/Bat/noBKG_BatDeath_strip.png" id="1_2k0u4"]
+[ext_resource type="Texture2D" uid="uid://btywuo3ykvu5j" path="res://assets/Enemies/Bat/noBKG_BatFlight_strip.png" id="2_hl87t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3181p"]
 atlas = ExtResource("1_2k0u4")
@@ -150,9 +150,9 @@ motion_mode = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1y5ex")
-animation = &"Death"
-frame_progress = 0.0631072
+animation = &"Walk"
+frame_progress = 0.07568158
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3.5, -4.5)
+position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_2k0u4")

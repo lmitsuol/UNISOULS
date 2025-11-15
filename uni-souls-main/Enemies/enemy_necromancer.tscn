@@ -1,9 +1,9 @@
 [gd_scene load_steps=124 format=3 uid="uid://bhtrmpfcjetrl"]
 
-[ext_resource type="Texture2D" uid="uid://d2i2q01xemh3w" path="res://assets/Inimigos/Necromancer/Walk/spr_NecromancerWalk_strip10.png" id="1_ddcop"]
-[ext_resource type="Texture2D" uid="uid://dmchd6xqvddm6" path="res://assets/Inimigos/Necromancer/Attack/spr_NecromancerAttackWithoutEffect_strip47.png" id="1_lyh2f"]
-[ext_resource type="Texture2D" uid="uid://bc4d13xalt53r" path="res://assets/Inimigos/Necromancer/Death/spr_NecromancerDeath_strip52.png" id="2_26csx"]
-[ext_resource type="Texture2D" uid="uid://do1slmc4tueh8" path="res://assets/Inimigos/Necromancer/GetHit/spr_NecromancerGetHit_strip9.png" id="3_pdkl5"]
+[ext_resource type="Texture2D" uid="uid://d2i2q01xemh3w" path="res://assets/Enemies/Necromancer/Walk/spr_NecromancerWalk_strip10.png" id="1_ddcop"]
+[ext_resource type="Texture2D" uid="uid://dmchd6xqvddm6" path="res://assets/Enemies/Necromancer/Attack/spr_NecromancerAttackWithoutEffect_strip47.png" id="1_lyh2f"]
+[ext_resource type="Texture2D" uid="uid://bc4d13xalt53r" path="res://assets/Enemies/Necromancer/Death/spr_NecromancerDeath_strip52.png" id="2_26csx"]
+[ext_resource type="Texture2D" uid="uid://do1slmc4tueh8" path="res://assets/Enemies/Necromancer/GetHit/spr_NecromancerGetHit_strip9.png" id="3_pdkl5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vqi48"]
 atlas = ExtResource("1_lyh2f")

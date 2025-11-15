@@ -1,8 +1,8 @@
 [gd_scene load_steps=56 format=3 uid="uid://cm6lt1h0t61yw"]
 
-[ext_resource type="Texture2D" uid="uid://diuf8bdj5llcp" path="res://assets/Inimigos/Golem/noBKG_GolemAttack_strip.png" id="1_h4tsq"]
-[ext_resource type="Texture2D" uid="uid://bpl5juf7uugas" path="res://assets/Inimigos/Golem/noBKG_GolemDeath_strip.png" id="2_2pp1f"]
-[ext_resource type="Texture2D" uid="uid://b8ewo812mj01j" path="res://assets/Inimigos/Golem/noBKG_GolemWalk_strip.png" id="3_8hc8g"]
+[ext_resource type="Texture2D" uid="uid://diuf8bdj5llcp" path="res://assets/Enemies/Golem/noBKG_GolemAttack_strip.png" id="1_h4tsq"]
+[ext_resource type="Texture2D" uid="uid://bpl5juf7uugas" path="res://assets/Enemies/Golem/noBKG_GolemDeath_strip.png" id="2_2pp1f"]
+[ext_resource type="Texture2D" uid="uid://b8ewo812mj01j" path="res://assets/Enemies/Golem/noBKG_GolemWalk_strip.png" id="3_8hc8g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j6de0"]
 atlas = ExtResource("1_h4tsq")

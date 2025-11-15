@@ -1,8 +1,8 @@
 [gd_scene load_steps=47 format=3 uid="uid://bbs6yk65l2l6g"]
 
-[ext_resource type="Texture2D" uid="uid://dwjcg8sns2r78" path="res://assets/Inimigos/Wolf/noBKG_WolfAttack_strip.png" id="1_28yls"]
-[ext_resource type="Texture2D" uid="uid://dl4jeeqni7afm" path="res://assets/Inimigos/Wolf/noBKG_WolfDeath_strip.png" id="2_fau2m"]
-[ext_resource type="Texture2D" uid="uid://v3oetskga7xx" path="res://assets/Inimigos/Wolf/noBKG_WolfRun_strip.png" id="3_rcfxn"]
+[ext_resource type="Texture2D" uid="uid://dwjcg8sns2r78" path="res://assets/Enemies/Wolf/noBKG_WolfAttack_strip.png" id="1_28yls"]
+[ext_resource type="Texture2D" uid="uid://dl4jeeqni7afm" path="res://assets/Enemies/Wolf/noBKG_WolfDeath_strip.png" id="2_fau2m"]
+[ext_resource type="Texture2D" uid="uid://v3oetskga7xx" path="res://assets/Enemies/Wolf/noBKG_WolfRun_strip.png" id="3_rcfxn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1wir4"]
 atlas = ExtResource("1_28yls")

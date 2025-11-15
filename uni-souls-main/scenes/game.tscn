@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://djgchbyja6x3g"]
 
-[ext_resource type="Script" uid="uid://bwcoufsdebfvi" path="res://scenes/game.gd" id="1_o5yvi"]
+[ext_resource type="Script" uid="uid://bwcoufsdebfvi" path="res://Scenes/game.gd" id="1_o5yvi"]
 [ext_resource type="Texture2D" uid="uid://dulphyi17os5n" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://3nebr6m235v2" path="res://assets/Final/Tiles.png" id="3_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://jpshtn70xkrp" path="res://assets/Final/Salt.png" id="4_vtaks"]
@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bm162q0x76dii" path="res://HUD/lives_gui.tscn" id="12_rku1e"]
 [ext_resource type="PackedScene" uid="uid://dt8o0aa1jrcv1" path="res://Menu/pause_menu.tscn" id="13_rfjv2"]
 [ext_resource type="AudioStream" uid="uid://dl7171a2a4c4m" path="res://Music/Música para Unisouls.mp3" id="14_1phco"]
-[ext_resource type="PackedScene" uid="uid://dol8vtl73d4fx" path="res://parallax_floresta.tscn" id="14_trtic"]
+[ext_resource type="PackedScene" uid="uid://dol8vtl73d4fx" path="res://Scenes/parallax_floresta.tscn" id="14_trtic"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")

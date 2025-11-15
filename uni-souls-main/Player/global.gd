@@ -1,3 +1,4 @@
 extends Node
 
-var player_lives = 5
+var max_lives = 5
+var player_lives = max_lives

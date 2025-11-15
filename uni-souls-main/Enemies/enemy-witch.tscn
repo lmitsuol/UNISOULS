@@ -1,8 +1,8 @@
 [gd_scene load_steps=43 format=3 uid="uid://bl17vr6jo6lyx"]
 
-[ext_resource type="Texture2D" uid="uid://7116hyyaqsid" path="res://assets/Inimigos/Witch/noBKG_WitchThrow_strip.png" id="1_2pam0"]
-[ext_resource type="Texture2D" uid="uid://d1fila3pe4jsv" path="res://assets/Inimigos/Witch/noBKG_WitchDeath_strip.png" id="2_oxils"]
-[ext_resource type="Texture2D" uid="uid://bbvgb8te1eoqj" path="res://assets/Inimigos/Witch/noBKG_WitchWalk_strip.png" id="3_6j13s"]
+[ext_resource type="Texture2D" uid="uid://7116hyyaqsid" path="res://assets/Enemies/Witch/noBKG_WitchThrow_strip.png" id="1_2pam0"]
+[ext_resource type="Texture2D" uid="uid://d1fila3pe4jsv" path="res://assets/Enemies/Witch/noBKG_WitchDeath_strip.png" id="2_oxils"]
+[ext_resource type="Texture2D" uid="uid://bbvgb8te1eoqj" path="res://assets/Enemies/Witch/noBKG_WitchWalk_strip.png" id="3_6j13s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n1bor"]
 atlas = ExtResource("1_2pam0")
