@@ -1,0 +1,76 @@
+extends CharacterBody2D
+
+const SPEED = 50.0
+const GRAVITY = 0
+var direction = 1 # 1 para direita, -1 para esquerda
+var health = 3
+var is_dying = false
+
+@onready var anim = $AnimatedSprite2D
+@onready var point_a = $Patrulha/PatrolPointA.global_position
+@onready var point_b = $Patrulha/PatrolPointB.global_position
+@onready var hitbox = $Hitbox # Area2D
+
+func _ready():
+	add_to_group("Enemy")
+	# Conecta o sinal 'body_entered' da Hitbox para causar dano ao Player
+	hitbox.body_entered.connect(_on_hitbox_body_entered)
+	# Garante que ele comece a patrulhar na direção correta
+	direction = sign(point_b.x - global_position.x)
+	anim.play("Walk")
+	anim.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
+
+
+func _physics_process(delta):
+	# Aplica a gravidade (se você quiser que ele caia, caso contrário, remova ou defina GRAVITY = 0)
+	velocity.y += GRAVITY * delta
+	
+	# Movimento de patrulha horizontal
+	velocity.x = SPEED * direction
+	
+	# Verifica se atingiu um dos pontos de patrulha para inverter a direção
+	var target_x = point_b.x if direction == 1 else point_a.x
+	
+	if abs(global_position.x - target_x) < 5: # Se estiver perto do ponto
+		direction *= -1 # Inverte a direção
+		
+	# Inverte a animação (sprite)
+	anim.flip_h = direction == 1
+	
+	move_and_slide()
+
+# --- FUNÇÕES DE VIDA/MORTE DO INIMIGO ---
+
+# Esta função é chamada pelo script do Player ao atacar o inimigo
+func take_damage(damage_amount: int):
+	if is_dying:
+		return
+		
+	health -= damage_amount
+	
+	# Efeito visual de dano (piscar/cor)
+	modulate = Color(1, 0.3, 0.3)
+	await get_tree().create_timer(0.1).timeout # Espera 0.1s para o efeito
+	modulate = Color(1, 1, 1)
+
+	if health <= 0:
+		die()
+
+func die():
+	if is_dying:
+		return
+		
+	is_dying = true
+	anim.play("Death") 
+	# Desativa a Hitbox para que o Player não tome mais dano dele
+	hitbox.set_deferred("monitoring", false) 
+	
+# Função que remove o inimigo após a animação de Morte
+func _on_animated_sprite_2d_animation_finished():
+	if is_dying and anim.animation == "Death":
+		queue_free() # Remove o nó da cena
+
+# --- DANO AO PLAYER POR TOQUE ---
+func _on_hitbox_body_entered(body: Node2D):
+	if body.is_in_group("Player"):
+		body.take_damage(1)

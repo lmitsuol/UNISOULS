@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://djgchbyja6x3g"]
+[gd_scene load_steps=27 format=3 uid="uid://djgchbyja6x3g"]
 
 [ext_resource type="Script" uid="uid://bwcoufsdebfvi" path="res://Scenes/game.gd" id="1_o5yvi"]
 [ext_resource type="Texture2D" uid="uid://dulphyi17os5n" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_yqjtg"]
@@ -10,10 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://b0vf1x8qtyf66" path="res://assets/Final/Background_1.png" id="8_trtic"]
 [ext_resource type="Texture2D" uid="uid://dj7yxe6ixs78a" path="res://assets/Final/Background_0.png" id="9_ir15t"]
 [ext_resource type="PackedScene" uid="uid://cgy672fe8b3n3" path="res://Player/player.tscn" id="10_vtaks"]
-[ext_resource type="PackedScene" uid="uid://bm162q0x76dii" path="res://HUD/lives_gui.tscn" id="12_rku1e"]
+[ext_resource type="PackedScene" uid="uid://dhwmgyg8qkbss" path="res://HUD/hud.tscn" id="12_1phco"]
 [ext_resource type="PackedScene" uid="uid://dt8o0aa1jrcv1" path="res://Menu/pause_menu.tscn" id="13_rfjv2"]
 [ext_resource type="AudioStream" uid="uid://dl7171a2a4c4m" path="res://Music/Música para Unisouls.mp3" id="14_1phco"]
 [ext_resource type="PackedScene" uid="uid://dol8vtl73d4fx" path="res://Scenes/parallax_floresta.tscn" id="14_trtic"]
+[ext_resource type="PackedScene" uid="uid://bhidh1cac4oju" path="res://Enemies/enemy_bat.tscn" id="15_nnt18"]
+[ext_resource type="PackedScene" uid="uid://bbs6yk65l2l6g" path="res://Enemies/enemy_wolf.tscn" id="16_ewbju"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -3729,7 +3731,9 @@ position = Vector2(-501, 215)
 position = Vector2(944.5, 275)
 shape = SubResource("RectangleShape2D_rku1e")
 
-[node name="Lives_GUI" parent="." instance=ExtResource("12_rku1e")]
+[node name="HUD" parent="." instance=ExtResource("12_1phco")]
+offset = Vector2(30, 25)
+transform = Transform2D(1, 0, 0, 1, 30, 25)
 
 [node name="Pause_menu" type="CanvasLayer" parent="."]
 
@@ -3741,5 +3745,11 @@ offset_right = 6.0
 stream = ExtResource("14_1phco")
 autoplay = true
 parameters/looping = false
+
+[node name="Enemy-Bat" parent="." instance=ExtResource("15_nnt18")]
+position = Vector2(636, 143)
+
+[node name="Enemy-Wolf" parent="." instance=ExtResource("16_ewbju")]
+position = Vector2(162, 169)
 
 [connection signal="body_entered" from="Interact" to="." method="_on_interact_body_entered"]

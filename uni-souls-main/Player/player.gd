@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
+signal health_changed(new_health)
+
 var is_attacking = false
 var is_jumping = false
 var is_dying = false
+var is_hit = false
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -370.0
@@ -11,13 +14,20 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var anim = $AnimatedSprite2D
 @onready var death_timer = $Death_Timer
+@onready var invincibility_timer = $InvincibilityTimer
 
 func _ready() -> void:
 	add_to_group("Player")
 	death_timer.connect("timeout", Callable(self, "_on_DeathTimer_timeout"))
+	invincibility_timer.timeout.connect(_on_InvincibilityTimer_timeout)
 
 func _physics_process(delta: float) -> void:
-	if is_dying:
+	# Trava o movimento se estiver morrendo OU se estiver no estado 'is_hit' (levando dano)
+	if is_dying or is_hit or is_attacking:
+		velocity.x = 0
+		if not is_on_floor():
+			velocity.y += gravity * delta
+		move_and_slide()
 		return
 	
 	# Gravidade
@@ -27,34 +37,85 @@ func _physics_process(delta: float) -> void:
 		is_jumping = false
 
 	# --- ATAQUE ---
-	if Input.is_action_just_pressed("Atacar") and not is_attacking:
+	if Input.is_action_just_pressed("Atacar"):
 		is_attacking = true
 		anim.play("Attack 1")
-		velocity.x = 0  # trava o movimento durante ataque
+		velocity.x = 0
+		$AttackHitbox.monitoring = true
 		return
 
-	# Se terminou a animação de ataque, libera movimento de novo
-	if is_attacking and not anim.is_playing():
-		is_attacking = false
-
-	# --- PULO ---
+	
+	# --- PULO (Bloco movido de volta para _physics_process) ---
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		is_jumping = true
 		
-	# --- PULO LONGO ---
-	#if Input.is_action_just_pressed("??") and is_on_floor():
-	#	velocity.y = JUMP_VELOCITY
-
-	# --- MOVIMENTO ---
+	# --- MOVIMENTO (Bloco movido de volta para _physics_process) ---
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
 		anim.flip_h = direction < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
 	update_animation(direction)
 	move_and_slide()
+
+func _on_attack_hitbox_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Enemy"):
+		if body.has_method("take_damage"):
+			body.take_damage(1)
+			
+func _on_animated_sprite_2d_animation_finished() -> void:
+	# Lógica principal: Desativa o ataque
+	if anim.animation == "Attack 1":
+		is_attacking = false
+		$AttackHitbox.monitoring = false
+
+func take_damage(damage_amount: int = 1):
+	if is_hit or is_dying:
+		return
+		
+	is_hit = true
+	Global.player_lives -= damage_amount
+	
+	emit_signal("health_changed", Global.player_lives)
+	
+	if Global.player_lives <= 0:
+		die()
+		return
+	modulate = Color(1,0.3,0.3,0.5)
+	invincibility_timer.start(1.5)
+	set_process(true)
+
+func _process(_delta):
+	if is_hit:
+		var total_time = Time.get_ticks_msec() / 1000.0
+		anim.modulate.a = lerp(0.5, 1.0, fmod(total_time, 0.2) / 0.2)
+	else:
+		anim.modulate.a = 1.0
+		set_process(false)
+
+func _on_InvincibilityTimer_timeout():
+	is_hit = false
+	anim.modulate.a = 1.0
+	modulate = Color(1,1,1,1)
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Enemy"):
+		take_damage(1)
+		var knockback_direction = -sign(position.x - body.position.x)
+		velocity.x = knockback_direction * 200
+		velocity.y = JUMP_VELOCITY / 2
+
+func die():
+	if is_dying:
+		return
+	
+	is_dying = true
+	anim.play("Die")
+	print("Game Over")
+	get_tree().change_scene_to_file("res://Menu/gameover.tscn")
 
 func update_animation(direction):
 	if is_dying:
@@ -76,24 +137,6 @@ func update_animation(direction):
 			anim.play("Idle")
 		else:
 			anim.play("Walk")
-
-func _on_hitbox_body_entered(body: Node2D) -> void:
-	if body.	is_in_group("Enemy") and body.is_alive:
-		die()
-		
-func die():
-	if is_dying:
-		return
-	
-	is_dying = true
-	anim.play("Die")
-	Global.player_lives -= 1
-	
-	if Global.player_lives > 0:
-		print("Reloading Scene")
-		get_tree().reload_current_scene()
-	else:
-		get_tree().change_scene_to_file("res://Menu/gameover.tscn")
 
 func on_DeathTimer_timeout():
 	get_tree().reload_current_scene()

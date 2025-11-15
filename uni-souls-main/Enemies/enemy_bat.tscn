@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://bhidh1cac4oju"]
+[gd_scene load_steps=25 format=3 uid="uid://bhidh1cac4oju"]
 
 [ext_resource type="Texture2D" uid="uid://cm1kfhcvbbdur" path="res://assets/Enemies/Bat/noBKG_BatDeath_strip.png" id="1_2k0u4"]
+[ext_resource type="Script" uid="uid://bvm2ju8tp3dfj" path="res://Enemies/enemy_bat.gd" id="1_hl87t"]
 [ext_resource type="Texture2D" uid="uid://btywuo3ykvu5j" path="res://assets/Enemies/Bat/noBKG_BatFlight_strip.png" id="2_hl87t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3181p"]
@@ -145,14 +146,33 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2k0u4"]
 size = Vector2(33, 11)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hl87t"]
+size = Vector2(30, 8)
+
 [node name="Enemy-Bat" type="CharacterBody2D"]
 motion_mode = 1
+script = ExtResource("1_hl87t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1y5ex")
 animation = &"Walk"
 frame_progress = 0.07568158
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_2k0u4")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_hl87t")
+
+[node name="Patrulha" type="Node2D" parent="."]
+
+[node name="PatrolPointA" type="Marker2D" parent="Patrulha"]
+position = Vector2(-100, 0)
+
+[node name="PatrolPointB" type="Marker2D" parent="Patrulha"]
+position = Vector2(100, 0)

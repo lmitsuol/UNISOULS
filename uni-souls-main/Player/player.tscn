@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://cgy672fe8b3n3"]
+[gd_scene load_steps=76 format=3 uid="uid://cgy672fe8b3n3"]
 
 [ext_resource type="Script" uid="uid://7istsimmj82d" path="res://Player/player.gd" id="1_k53q1"]
 [ext_resource type="Texture2D" uid="uid://dktqpiyg5kkpd" path="res://assets/Knight/noBKG_KnightAttack_strip.png" id="2_fhl08"]
@@ -58,42 +58,6 @@ region = Rect2(1584, 0, 144, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_gpjlu"]
 atlas = ExtResource("2_fhl08")
 region = Rect2(1728, 0, 144, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8mwp6"]
-atlas = ExtResource("2_fhl08")
-region = Rect2(1872, 0, 144, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qemgg"]
-atlas = ExtResource("2_fhl08")
-region = Rect2(2016, 0, 144, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8viyr"]
-atlas = ExtResource("2_fhl08")
-region = Rect2(2160, 0, 144, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sm0op"]
-atlas = ExtResource("2_fhl08")
-region = Rect2(2304, 0, 144, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_76lrf"]
-atlas = ExtResource("2_fhl08")
-region = Rect2(2448, 0, 144, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_efx54"]
-atlas = ExtResource("2_fhl08")
-region = Rect2(2592, 0, 144, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_755ss"]
-atlas = ExtResource("2_fhl08")
-region = Rect2(2736, 0, 144, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bbimk"]
-atlas = ExtResource("2_fhl08")
-region = Rect2(2880, 0, 144, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m0h3t"]
-atlas = ExtResource("2_fhl08")
-region = Rect2(3024, 0, 144, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i4o1l"]
 atlas = ExtResource("3_vtle1")
@@ -306,7 +270,7 @@ region = Rect2(672, 0, 96, 64)
 [sub_resource type="SpriteFrames" id="SpriteFrames_nvl01"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 0.05,
 "texture": SubResource("AtlasTexture_apopc")
 }, {
 "duration": 1.0,
@@ -344,35 +308,8 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gpjlu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8mwp6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qemgg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8viyr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sm0op")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_76lrf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_efx54")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_755ss")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bbimk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m0h3t")
 }],
-"loop": true,
+"loop": false,
 "name": &"Attack 1",
 "speed": 10.0
 }, {
@@ -554,11 +491,15 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hqtel"]
+radius = 9.0
 height = 24.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k53q1"]
 radius = 9.0
 height = 22.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhl08"]
+size = Vector2(19, 23)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_k53q1")
@@ -567,22 +508,34 @@ script = ExtResource("1_k53q1")
 position = Vector2(-2, -46)
 scale = Vector2(0.71875, 0.71875)
 sprite_frames = SubResource("SpriteFrames_nvl01")
-animation = &"Jump"
+animation = &"Attack 1"
 
 [node name="Camera2D" type="Camera2D" parent="AnimatedSprite2D"]
 position = Vector2(4, -20)
 zoom = Vector2(4.5, 4.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -48)
+position = Vector2(-1, -48)
 shape = SubResource("CapsuleShape2D_hqtel")
 
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(1, -48)
+position = Vector2(-1, -48)
 shape = SubResource("CapsuleShape2D_k53q1")
 
 [node name="Death_Timer" type="Timer" parent="."]
 
+[node name="InvincibilityTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="AttackHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
+position = Vector2(6.5, -48.5)
+shape = SubResource("RectangleShape2D_fhl08")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="AttackHitbox" to="." method="_on_attack_hitbox_body_entered"]

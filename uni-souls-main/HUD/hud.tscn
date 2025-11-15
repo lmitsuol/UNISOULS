@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhwmgyg8qkbss"]
+[gd_scene load_steps=4 format=3 uid="uid://dhwmgyg8qkbss"]
 
 [ext_resource type="Texture2D" uid="uid://c01j2mlqrtco1" path="res://assets/HUD/heart-full.png" id="1_mi5n8"]
+[ext_resource type="Script" uid="uid://b8sacf0dq6y0g" path="res://HUD/hud.gd" id="1_yu8mg"]
 [ext_resource type="Texture2D" uid="uid://bl4ki8ooded1w" path="res://assets/HUD/heart-empty.png" id="2_yu8mg"]
 
 [node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_yu8mg")
 
 [node name="HeartsFull" type="TextureRect" parent="."]
 offset_right = 5120.0
