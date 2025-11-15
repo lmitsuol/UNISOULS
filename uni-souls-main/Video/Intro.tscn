@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://y3k1rfcq57b"]
+[gd_scene load_steps=3 format=3 uid="uid://y3k1rfcq57b"]
 
 [ext_resource type="VideoStream" uid="uid://cldhmyccm2jdi" path="res://Video/IntroCutscene.ogv" id="1_dnot5"]
+[ext_resource type="Script" uid="uid://xg85fu71k0tt" path="res://Video/video_stream_player.gd" id="2_jyhi3"]
 
 [node name="Intro" type="Node2D"]
 
@@ -16,3 +17,6 @@ scale = Vector2(0.6, 0.6)
 stream = ExtResource("1_dnot5")
 autoplay = true
 expand = true
+script = ExtResource("2_jyhi3")
+
+[connection signal="finished" from="VideoStreamPlayer" to="VideoStreamPlayer" method="_on_finished"]
