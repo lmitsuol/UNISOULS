@@ -1,18 +1,18 @@
 [gd_scene load_steps=2 format=3 uid="uid://y3k1rfcq57b"]
 
-[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_52ouu"]
-file = "res://Video/Vídeo-do-WhatsApp-de-2025-11-13-à_s_-20.09.24_76810c71_1.ogv"
+[ext_resource type="VideoStream" uid="uid://cldhmyccm2jdi" path="res://Video/IntroCutscene.ogv" id="1_dnot5"]
 
 [node name="Intro" type="Node2D"]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.49, 0.5)
+
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 33.0
-offset_top = 17.0
-offset_right = 1835.0
-offset_bottom = 1025.0
-grow_horizontal = 2
+offset_left = -1963.0
+offset_top = -1077.0
+offset_right = 4573.6665
+offset_bottom = 2526.3333
 scale = Vector2(0.6, 0.6)
-stream = SubResource("VideoStreamTheora_52ouu")
+stream = ExtResource("1_dnot5")
 autoplay = true
+expand = true
