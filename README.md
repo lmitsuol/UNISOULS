@@ -1,5 +1,8 @@
-# UNISOULS
-Projeto de jogo MetroidVania para projeto de faculdade
+# 💻 UNISOULS
+
+O presente trabalho é um projeto de faculdade onde os alunos criarão um jogo usando os conhecimentos aprendidos em sala.
+---
+
 
 ## 🧠 Integrantes do Grupo
 
