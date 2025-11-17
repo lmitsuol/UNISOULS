@@ -502,6 +502,7 @@ height = 22.0
 size = Vector2(21, 23)
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 3
 script = ExtResource("1_k53q1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
