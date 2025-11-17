@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://cm6lt1h0t61yw"]
+[gd_scene load_steps=57 format=3 uid="uid://cm6lt1h0t61yw"]
 
 [ext_resource type="Texture2D" uid="uid://diuf8bdj5llcp" path="res://assets/Enemies/Golem/noBKG_GolemAttack_strip.png" id="1_h4tsq"]
 [ext_resource type="Texture2D" uid="uid://bpl5juf7uugas" path="res://assets/Enemies/Golem/noBKG_GolemDeath_strip.png" id="2_2pp1f"]
@@ -379,11 +379,19 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4tsq"]
+size = Vector2(29, 38)
+
 [node name="Enemy-Boss" type="CharacterBody2D"]
+position = Vector2(1, 20)
+scale = Vector2(2, 2)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_f37wc")
 animation = &"Walk"
 frame_progress = 0.490532
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -7)
+shape = SubResource("RectangleShape2D_h4tsq")
