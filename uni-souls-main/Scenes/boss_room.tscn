@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://c4e0tf70igdkr"]
+[gd_scene load_steps=10 format=3 uid="uid://c4e0tf70igdkr"]
 
 [ext_resource type="Texture2D" uid="uid://3nebr6m235v2" path="res://assets/Final/Tiles.png" id="1_4kqfc"]
+[ext_resource type="Script" uid="uid://def807ucsn2ig" path="res://Scenes/boss_room.gd" id="1_bnrw0"]
 [ext_resource type="PackedScene" uid="uid://cgy672fe8b3n3" path="res://Player/player.tscn" id="2_b2mui"]
 [ext_resource type="PackedScene" uid="uid://dhwmgyg8qkbss" path="res://HUD/hud.tscn" id="3_q04ek"]
 [ext_resource type="PackedScene" uid="uid://dt8o0aa1jrcv1" path="res://Menu/pause_menu.tscn" id="4_l7on7"]
@@ -417,6 +418,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_0x2vs")
 
 [node name="Boss_Room" type="Node2D"]
+script = ExtResource("1_bnrw0")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_lu0rs")
@@ -435,8 +437,9 @@ color = Color(0.09964379, 0.00697637, 0.018604971, 1)
 position = Vector2(257, 1080)
 
 [node name="HUD" parent="." instance=ExtResource("3_q04ek")]
-offset = Vector2(30, 25)
-transform = Transform2D(1, 0, 0, 1, 30, 25)
+offset = Vector2(70, 50)
+scale = Vector2(1.5, 1.5)
+transform = Transform2D(1.5, 0, 0, 1.5, 70, 50)
 
 [node name="Pause_menu" type="CanvasLayer" parent="."]
 
@@ -448,12 +451,11 @@ offset_right = 6.0
 position = Vector2(2780, 1025)
 
 [node name="HUD_Boss" type="CanvasLayer" parent="."]
-offset = Vector2(100, 100)
-transform = Transform2D(1, 0, 0, 1, 100, 100)
+offset = Vector2(830, 200)
+transform = Transform2D(1, 0, 0, 1, 830, 200)
 
 [node name="BossHealthBar" type="ProgressBar" parent="HUD_Boss"]
 offset_right = 256.0
 offset_bottom = 76.0
 max_value = 10.0
-fill_mode = 2
 script = ExtResource("6_l7on7")

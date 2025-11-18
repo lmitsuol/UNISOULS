@@ -9,6 +9,13 @@ func _ready() -> void:
 
 func update_hearts(new_health: int):
 	const heart_width = 1024
+	var empty_count = Global.max_lives - new_health
+	if empty_count <= 0:
+		$HeartsEmpty.visible = false
+		return
+	else:
+		$HeartsEmpty.visible = true
+		
 	$HeartsFull.size.x = new_health * heart_width
-	$HeartsEmpty.size.x = (Global.max_lives - new_health) * heart_width
+	$HeartsEmpty.size.x = empty_count * heart_width
 	$HeartsEmpty.position.x = $HeartsFull.position.x + $HeartsFull.size.x * $HeartsFull.scale.x

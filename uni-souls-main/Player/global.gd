@@ -20,3 +20,12 @@ func on_boss_defeated():
 	# 3. Descongela e carrega a cena de Créditos
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Menu/end.tscn")
+	
+# Função chamada por qualquer cena para definir o nome da área.
+func set_current_area(name: String):
+	# Procura o CanvasLayer (HUD)
+	var area_label = get_tree().get_first_node_in_group("AreaHUD")
+	
+	if area_label and area_label.has_method("set_area_name"):
+		# Chama a função de atualização da Label
+		area_label.set_area_name(name)

@@ -5,10 +5,8 @@
 [ext_resource type="Script" uid="uid://b7q155bmjlvx4" path="res://Music/audio_control.gd" id="3_d3xb4"]
 [ext_resource type="Script" uid="uid://b1lc3cr73suep" path="res://Menu/fullscreen_control.gd" id="4_mxa3g"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e8sti"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2yj1"]
-bg_color = Color(0.362829, 0.36283, 0.362829, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7dbl"]
+bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -25,14 +23,16 @@ corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7dbl"]
-bg_color = Color(1, 1, 1, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2yj1"]
+bg_color = Color(0.362829, 0.36283, 0.362829, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e8sti"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_lv42l"]
 color = Color(1, 1, 1, 1)
@@ -60,7 +60,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.313726)
+color = Color(0, 0, 0, 0.34509805)
 
 [node name="MainButtons" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -80,61 +80,61 @@ theme_override_constants/separation = 8
 [node name="Button4" type="Button" parent="MainButtons"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_2nc7s")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/focus = SubResource("StyleBoxEmpty_e8sti")
-theme_override_styles/hover = SubResource("StyleBoxFlat_q2yj1")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_a32ks")
 theme_override_styles/normal = SubResource("StyleBoxFlat_g7dbl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a32ks")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q2yj1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e8sti")
 text = "Continue"
 
 [node name="Button" type="Button" parent="MainButtons"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_2nc7s")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/focus = SubResource("StyleBoxEmpty_e8sti")
-theme_override_styles/hover = SubResource("StyleBoxFlat_q2yj1")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_a32ks")
 theme_override_styles/normal = SubResource("StyleBoxFlat_g7dbl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a32ks")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q2yj1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e8sti")
 text = "Restart"
 
 [node name="Button2" type="Button" parent="MainButtons"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_2nc7s")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/focus = SubResource("StyleBoxEmpty_e8sti")
-theme_override_styles/hover = SubResource("StyleBoxFlat_q2yj1")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_a32ks")
 theme_override_styles/normal = SubResource("StyleBoxFlat_g7dbl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a32ks")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q2yj1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e8sti")
 text = "Options"
 
 [node name="Button3" type="Button" parent="MainButtons"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_2nc7s")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/focus = SubResource("StyleBoxEmpty_e8sti")
-theme_override_styles/hover = SubResource("StyleBoxFlat_q2yj1")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_a32ks")
 theme_override_styles/normal = SubResource("StyleBoxFlat_g7dbl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a32ks")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q2yj1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e8sti")
 text = "Exit"
 
 [node name="Label" type="Label" parent="."]
@@ -199,16 +199,16 @@ offset_top = 184.0
 offset_right = 303.5
 offset_bottom = 212.0
 size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_2nc7s")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/focus = SubResource("StyleBoxEmpty_e8sti")
-theme_override_styles/hover = SubResource("StyleBoxFlat_q2yj1")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_a32ks")
 theme_override_styles/normal = SubResource("StyleBoxFlat_g7dbl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a32ks")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q2yj1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e8sti")
 text = "Back"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Options"]

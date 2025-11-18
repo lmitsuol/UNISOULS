@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://cm6lt1h0t61yw"]
+[gd_scene load_steps=74 format=3 uid="uid://cm6lt1h0t61yw"]
 
 [ext_resource type="Script" uid="uid://c0qrbng8obwtm" path="res://Enemies/enemy_boss.gd" id="1_2pp1f"]
 [ext_resource type="Texture2D" uid="uid://diuf8bdj5llcp" path="res://assets/Enemies/Golem/noBKG_GolemAttack_strip.png" id="1_h4tsq"]
@@ -479,13 +479,18 @@ size = Vector2(150.5, 33)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8hc8g"]
 size = Vector2(31, 37)
 
-[node name="Enemy-Boss" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6de0"]
+size = Vector2(30, 27)
+
+[node name="Enemy-Boss" type="CharacterBody2D" groups=["Boss"]]
 position = Vector2(1, 20)
 script = ExtResource("1_2pp1f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_f37wc")
-animation = &"Idle"
+animation = &"Attack"
+frame = 12
+frame_progress = 0.38631165
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -504,7 +509,14 @@ shape = SubResource("RectangleShape2D_2pp1f")
 position = Vector2(-1.5, -8)
 shape = SubResource("RectangleShape2D_8hc8g")
 
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-7, -7.5)
+shape = SubResource("RectangleShape2D_j6de0")
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
 [connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_area_exited"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

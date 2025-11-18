@@ -80,6 +80,14 @@ func _on_detection_area_body_exited(body):
 		player_target = null
 
 # --- DANO ---
+func _on_boss_hitbox_body_entered(body: Node2D):
+	if is_dying:
+		return
+
+	# SÓ CAUSA DANO DURANTE A ANIMAÇÃO DE ATAQUE
+	if anim.animation == "Attack" and body.is_in_group("Player"):
+		body.take_damage(1)
+
 # É chamado quando a Hitbox de ataque do Player atinge o Hurtbox do Boss
 func _on_hurtbox_area_entered(area: Area2D):
 	# Assumindo que a hitbox do Player está no grupo "PlayerHitbox"
@@ -124,4 +132,3 @@ func _on_animated_sprite_2d_animation_finished():
 		
 		# 2. Deixa o Golem parado na cena para o momento dramático
 		queue_free() # ou queue_free() após o efeito visual
-		

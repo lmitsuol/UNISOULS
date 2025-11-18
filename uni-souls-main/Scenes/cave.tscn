@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bytn08t4h0tr3"]
+[gd_scene load_steps=11 format=3 uid="uid://bytn08t4h0tr3"]
 
 [ext_resource type="Texture2D" uid="uid://3nebr6m235v2" path="res://assets/Final/Tiles.png" id="1_02alt"]
+[ext_resource type="Script" uid="uid://1n1k057pr4v8" path="res://Scenes/cave.gd" id="1_yxobr"]
 [ext_resource type="PackedScene" uid="uid://cgy672fe8b3n3" path="res://Player/player.tscn" id="2_3usej"]
 [ext_resource type="PackedScene" uid="uid://dhwmgyg8qkbss" path="res://HUD/hud.tscn" id="3_yfbkh"]
 [ext_resource type="PackedScene" uid="uid://dt8o0aa1jrcv1" path="res://Menu/pause_menu.tscn" id="4_g4geh"]
@@ -399,6 +400,7 @@ sources/0 = SubResource("TileSetAtlasSource_incdu")
 size = Vector2(18, 144)
 
 [node name="Cave" type="Node2D"]
+script = ExtResource("1_yxobr")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_sq6o7")
@@ -417,8 +419,9 @@ color = Color(0.12955844, 0.12955847, 0.12955844, 1)
 position = Vector2(-114, 148)
 
 [node name="HUD" parent="." instance=ExtResource("3_yfbkh")]
-offset = Vector2(30, 25)
-transform = Transform2D(1, 0, 0, 1, 30, 25)
+offset = Vector2(70, 50)
+scale = Vector2(1.5, 1.5)
+transform = Transform2D(1.5, 0, 0, 1.5, 70, 50)
 
 [node name="Pause_menu" type="CanvasLayer" parent="."]
 

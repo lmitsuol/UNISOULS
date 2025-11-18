@@ -61,10 +61,20 @@ func _physics_process(delta: float) -> void:
 	update_animation(direction)
 	move_and_slide()
 
-func _on_attack_hitbox_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Enemy"):
-		if body.has_method("take_damage"):
-			body.take_damage(1)
+func _on_attack_hitbox_area_entered(area: Area2D) -> void:
+	var target = area
+	if area.has_method("take_damage") and area.is_in_group("Enemy"):
+		pass
+	elif area.get_parent() and (area.get_parent().is_in_group("Boss") or area.get_parent().is_in_group("Enemy")):
+		target = area.get_parent()
+	else:
+		return
+		
+	# 3. Aplica o dano e desativa o monitoring
+	if target.has_method("take_damage"):
+		target.take_damage(1)
+		$AttackHitbox.monitoring = false
+		return
 			
 func _on_animated_sprite_2d_animation_finished() -> void:
 	# Lógica principal: Desativa o ataque
@@ -115,6 +125,7 @@ func die():
 	is_dying = true
 	anim.play("Die")
 	print("Game Over")
+	Music.play_music("gameover")
 	get_tree().change_scene_to_file("res://Menu/gameover.tscn")
 
 func update_animation(direction):
