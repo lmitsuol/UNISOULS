@@ -3746,7 +3746,7 @@ offset_left = 6.0
 offset_right = 6.0
 
 [node name="Enemy-Bat" parent="." instance=ExtResource("15_nnt18")]
-position = Vector2(636, 143)
+position = Vector2(591, 144)
 
 [node name="Enemy-Wolf" parent="." instance=ExtResource("16_ewbju")]
 position = Vector2(162, 169)

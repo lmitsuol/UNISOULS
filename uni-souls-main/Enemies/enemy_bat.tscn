@@ -109,7 +109,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_51xwh")
 }],
-"loop": true,
+"loop": false,
 "name": &"Death",
 "speed": 9.0
 }, {
@@ -144,10 +144,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2k0u4"]
-size = Vector2(33, 11)
+size = Vector2(33.5, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hl87t"]
-size = Vector2(30, 8)
+size = Vector2(31, 8)
 
 [node name="Enemy-Bat" type="CharacterBody2D"]
 motion_mode = 1
@@ -156,23 +156,22 @@ script = ExtResource("1_hl87t")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1y5ex")
 animation = &"Walk"
-frame_progress = 0.07568158
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -1)
+position = Vector2(-0.75, -1)
 shape = SubResource("RectangleShape2D_2k0u4")
 
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-1, -1)
+position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_hl87t")
 
 [node name="Patrulha" type="Node2D" parent="."]
 
 [node name="PatrolPointA" type="Marker2D" parent="Patrulha"]
-position = Vector2(-100, 0)
+position = Vector2(-70, 0)
 
 [node name="PatrolPointB" type="Marker2D" parent="Patrulha"]
-position = Vector2(100, 0)
+position = Vector2(70, 0)

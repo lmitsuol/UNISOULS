@@ -71,6 +71,18 @@ func _on_animated_sprite_2d_animation_finished():
 		queue_free() # Remove o nó da cena
 
 # --- DANO AO PLAYER POR TOQUE ---
+func _on_hurtbox_area_entered(area: Area2D):
+	# O Morcego SÓ toma dano se for do grupo de ataque do Player.
+	if area.is_in_group("PlayerHitbox"): 
+		take_damage(1)
+		# Desliga o Hitbox do Player para evitar múltiplos hits
+		area.monitoring = false
+
+# --- DANO AO PLAYER POR TOQUE (Bat atingindo o Player) ---
 func _on_hitbox_body_entered(body: Node2D):
+	if is_dying:
+		return
+	
 	if body.is_in_group("Player"):
 		body.take_damage(1)
+		
