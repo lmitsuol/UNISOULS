@@ -11,10 +11,8 @@
 texture = ExtResource("2_jix8l")
 modulate_color = Color(0.637843, 0.637843, 0.637843, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0o4t1"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dy7ct"]
-bg_color = Color(0.362829, 0.36283, 0.362829, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qe12f"]
+bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -31,14 +29,16 @@ corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qe12f"]
-bg_color = Color(1, 1, 1, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dy7ct"]
+bg_color = Color(0.362829, 0.36283, 0.362829, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0o4t1"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_jix8l"]
 color = Color(1, 1, 1, 1)
@@ -85,46 +85,46 @@ theme_override_constants/separation = 8
 [node name="Button" type="Button" parent="MainButtons"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_glbon")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/focus = SubResource("StyleBoxEmpty_0o4t1")
-theme_override_styles/hover = SubResource("StyleBoxFlat_dy7ct")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8qtwp")
 theme_override_styles/normal = SubResource("StyleBoxFlat_qe12f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8qtwp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dy7ct")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0o4t1")
 text = "Start Game"
 
 [node name="Button2" type="Button" parent="MainButtons"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_glbon")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/focus = SubResource("StyleBoxEmpty_0o4t1")
-theme_override_styles/hover = SubResource("StyleBoxFlat_dy7ct")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8qtwp")
 theme_override_styles/normal = SubResource("StyleBoxFlat_qe12f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8qtwp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dy7ct")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0o4t1")
 text = "Options"
 
 [node name="Button3" type="Button" parent="MainButtons"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_glbon")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/focus = SubResource("StyleBoxEmpty_0o4t1")
-theme_override_styles/hover = SubResource("StyleBoxFlat_dy7ct")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8qtwp")
 theme_override_styles/normal = SubResource("StyleBoxFlat_qe12f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8qtwp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dy7ct")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0o4t1")
 text = "Exit"
 
 [node name="Label" type="Label" parent="."]
@@ -194,16 +194,16 @@ offset_top = 184.0
 offset_right = 303.5
 offset_bottom = 212.0
 size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_glbon")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/focus = SubResource("StyleBoxEmpty_0o4t1")
-theme_override_styles/hover = SubResource("StyleBoxFlat_dy7ct")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8qtwp")
 theme_override_styles/normal = SubResource("StyleBoxFlat_qe12f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8qtwp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dy7ct")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0o4t1")
 text = "Back"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Options"]
