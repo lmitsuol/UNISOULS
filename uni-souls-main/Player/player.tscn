@@ -509,9 +509,7 @@ script = ExtResource("1_k53q1")
 position = Vector2(-2, -46)
 scale = Vector2(0.71875, 0.71875)
 sprite_frames = SubResource("SpriteFrames_nvl01")
-animation = &"Attack 1"
-frame = 12
-frame_progress = 1.0
+animation = &"Die"
 
 [node name="Camera2D" type="Camera2D" parent="AnimatedSprite2D"]
 position = Vector2(4, -50)
