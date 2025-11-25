@@ -1,5 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://djgchbyja6x3g"]
+[gd_scene load_steps=28 format=3 uid="uid://djgchbyja6x3g"]
 
+[ext_resource type="Script" uid="uid://bwcoufsdebfvi" path="res://Scenes/game.gd" id="1_nnt18"]
 [ext_resource type="Texture2D" uid="uid://dulphyi17os5n" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://3nebr6m235v2" path="res://assets/Final/Tiles.png" id="3_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://jpshtn70xkrp" path="res://assets/Final/Salt.png" id="4_vtaks"]
@@ -3713,6 +3714,7 @@ size = Vector2(4869, 39)
 size = Vector2(22, 153)
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_nnt18")
 
 [node name="Parallax_Floresta" parent="." instance=ExtResource("14_trtic")]
 position = Vector2(105, -176)
