@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 50.0
 const GRAVITY = 0
-var direction = 1 # 1 para direita, -1 para esquerda
+var direction = -1 
 var health = 3
 var is_dying = false
 
@@ -22,7 +22,7 @@ func _ready():
 
 
 func _physics_process(delta):
-	# Aplica a gravidade (se você quiser que ele caia, caso contrário, remova ou defina GRAVITY = 0)
+	
 	velocity.y += GRAVITY * delta
 	
 	# Movimento de patrulha horizontal
@@ -35,7 +35,7 @@ func _physics_process(delta):
 		direction *= -1 # Inverte a direção
 		
 	# Inverte a animação (sprite)
-	anim.flip_h = direction == 1
+	anim.flip_h = direction == -1
 	
 	move_and_slide()
 

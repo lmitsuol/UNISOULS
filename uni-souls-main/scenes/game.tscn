@@ -11,10 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://cgy672fe8b3n3" path="res://Player/player.tscn" id="10_vtaks"]
 [ext_resource type="PackedScene" uid="uid://dhwmgyg8qkbss" path="res://HUD/hud.tscn" id="12_1phco"]
 [ext_resource type="PackedScene" uid="uid://dt8o0aa1jrcv1" path="res://Menu/pause_menu.tscn" id="13_rfjv2"]
-[ext_resource type="PackedScene" uid="uid://dol8vtl73d4fx" path="res://scenes/parallax_floresta.tscn" id="14_trtic"]
+[ext_resource type="PackedScene" uid="uid://dol8vtl73d4fx" path="res://Scenes/parallax_floresta.tscn" id="14_trtic"]
 [ext_resource type="PackedScene" uid="uid://bhidh1cac4oju" path="res://Enemies/enemy_bat.tscn" id="15_nnt18"]
 [ext_resource type="PackedScene" uid="uid://bbs6yk65l2l6g" path="res://Enemies/enemy_wolf.tscn" id="16_ewbju"]
-[ext_resource type="Script" uid="uid://bmw624fp331kg" path="res://scenes/caveportal.gd" id="17_ewbju"]
+[ext_resource type="Script" uid="uid://bmw624fp331kg" path="res://Scenes/caveportal.gd" id="17_ewbju"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -3744,7 +3744,10 @@ offset_left = 6.0
 offset_right = 6.0
 
 [node name="Enemy-Bat" parent="." instance=ExtResource("15_nnt18")]
-position = Vector2(591, 144)
+position = Vector2(589, 135)
+
+[node name="Enemy-Bat2" parent="." instance=ExtResource("15_nnt18")]
+position = Vector2(-368, 168)
 
 [node name="Enemy-Wolf" parent="." instance=ExtResource("16_ewbju")]
 position = Vector2(162, 169)

@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://bvm2ju8tp3dfj" path="res://Enemies/enemy_bat.gd" id="1_hl87t"]
 [ext_resource type="Texture2D" uid="uid://btywuo3ykvu5j" path="res://assets/Enemies/Bat/noBKG_BatFlight_strip.png" id="2_hl87t"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2k0u4"]
+size = Vector2(33.5, 11)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_3181p"]
 atlas = ExtResource("1_2k0u4")
 region = Rect2(0, 0, 64, 64)
@@ -143,9 +146,6 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2k0u4"]
-size = Vector2(33.5, 11)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hl87t"]
 size = Vector2(31, 8)
 
@@ -153,14 +153,16 @@ size = Vector2(31, 8)
 motion_mode = 1
 script = ExtResource("1_hl87t")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_1y5ex")
-animation = &"Walk"
-flip_h = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.75, -1)
 shape = SubResource("RectangleShape2D_2k0u4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 0)
+sprite_frames = SubResource("SpriteFrames_1y5ex")
+animation = &"Walk"
+frame_progress = 0.43631896
+flip_h = true
 
 [node name="Hitbox" type="Area2D" parent="."]
 
