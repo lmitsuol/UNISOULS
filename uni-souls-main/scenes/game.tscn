@@ -3750,7 +3750,7 @@ position = Vector2(589, 135)
 position = Vector2(-368, 168)
 
 [node name="Enemy-Wolf" parent="." instance=ExtResource("16_ewbju")]
-position = Vector2(162, 169)
+position = Vector2(-219, 170)
 
 [node name="CavePortal" type="Area2D" parent="."]
 script = ExtResource("17_ewbju")
