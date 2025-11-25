@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c1sjmbhdjx3o5"
+path="res://.godot/imported/Musica unisouls 2.MP3-c874ca7a4e65fe09c8be9b8b0ddcb598.mp3str"
+
+[deps]
+
+source_file="res://scenes/Musica unisouls 2.MP3"
+dest_files=["res://.godot/imported/Musica unisouls 2.MP3-c874ca7a4e65fe09c8be9b8b0ddcb598.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
