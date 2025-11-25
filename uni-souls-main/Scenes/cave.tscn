@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bytn08t4h0tr3"]
+[gd_scene load_steps=15 format=3 uid="uid://bytn08t4h0tr3"]
 
 [ext_resource type="Texture2D" uid="uid://3nebr6m235v2" path="res://assets/Final/Tiles.png" id="1_02alt"]
 [ext_resource type="Script" uid="uid://1n1k057pr4v8" path="res://Scenes/cave.gd" id="1_yxobr"]
@@ -548,20 +548,32 @@ sources/1 = SubResource("TileSetAtlasSource_rfl45")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4geh"]
 size = Vector2(18, 144)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3csq"]
+size = Vector2(1004.875, 65.75)
+
 [node name="Cave" type="Node2D"]
 script = ExtResource("1_yxobr")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-show_behind_parent = true
-offset_left = 1142.0
-offset_top = -609.0
-offset_right = 3380.0
-offset_bottom = 1178.0
-color = Color(0.12955844, 0.12955847, 0.12955844, 1)
-
 [node name="Parallax_Cave" parent="." instance=ExtResource("2_cameo")]
-position = Vector2(5, 0)
-scale = Vector2(2.5, 2.5)
+position = Vector2(39, 68)
+
+[node name="Parallax_Cave7" parent="." instance=ExtResource("2_cameo")]
+position = Vector2(11, -1212)
+
+[node name="Parallax_Cave6" parent="." instance=ExtResource("2_cameo")]
+position = Vector2(20, -998)
+
+[node name="Parallax_Cave5" parent="." instance=ExtResource("2_cameo")]
+position = Vector2(30, -783)
+
+[node name="Parallax_Cave4" parent="." instance=ExtResource("2_cameo")]
+position = Vector2(34, -576)
+
+[node name="Parallax_Cave3" parent="." instance=ExtResource("2_cameo")]
+position = Vector2(37, -361)
+
+[node name="Parallax_Cave2" parent="." instance=ExtResource("2_cameo")]
+position = Vector2(42, -148)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_sq6o7")
@@ -579,10 +591,8 @@ transform = Transform2D(1.5, 0, 0, 1.5, 70, 50)
 [node name="Pause_menu" type="CanvasLayer" parent="."]
 
 [node name="Pause_menu" parent="Pause_menu" instance=ExtResource("4_g4geh")]
-offset_left = 32.0
-offset_top = -149.0
-offset_right = 32.0
-offset_bottom = -149.0
+offset_left = -3.0
+offset_right = -3.0
 
 [node name="Enemy-Wolf" parent="." instance=ExtResource("5_g4geh")]
 position = Vector2(1046, 20)
@@ -596,3 +606,15 @@ script = ExtResource("6_mp6fm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossPortal"]
 position = Vector2(1892, -1025)
 shape = SubResource("RectangleShape2D_g4geh")
+
+[node name="Interact" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interact"]
+position = Vector2(1070.4375, 215)
+shape = SubResource("RectangleShape2D_h3csq")
+
+[node name="Interact2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interact2"]
+position = Vector2(641, -312.875)
+shape = SubResource("RectangleShape2D_h3csq")
