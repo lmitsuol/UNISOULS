@@ -137,10 +137,11 @@ animations = [{
 }]
 
 [node name="Npc-Vila" type="Node2D"]
+scale = Vector2(0.75, 0.75)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1s550")
 animation = &"Idle"
-frame_progress = 0.75451195
-
-[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
+frame = 4
+frame_progress = 0.6938861
+flip_h = true
