@@ -7,6 +7,8 @@ extends Control
 func _process(delta: float) -> void:
 	pass
 
+
+
 func _ready():
 	main_buttons.visible = true
 	options.visible = false
@@ -14,7 +16,7 @@ func _ready():
 
 func _on_start_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
-	$AudioStreamPlayer.stop()
+
 
 
 func _on_options_pressed() -> void:
