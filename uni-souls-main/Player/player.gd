@@ -7,6 +7,7 @@ var is_jumping = false
 var is_dying = false
 var is_hit = false
 
+
 const SPEED = 150.0
 const JUMP_VELOCITY = -370.0
 const KNOCKBACK_FORCE = 200.0 # Força horizontal do empurrão

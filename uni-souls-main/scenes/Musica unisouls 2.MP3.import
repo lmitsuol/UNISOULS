@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://c1sjmbhdjx3o5"
-path="res://.godot/imported/Musica unisouls 2.MP3-cfeefc20ba13ed39d411162fabc60b4b.mp3str"
+path="res://.godot/imported/Musica unisouls 2.MP3-c874ca7a4e65fe09c8be9b8b0ddcb598.mp3str"
 
 [deps]
 
-source_file="res://Scenes/Musica unisouls 2.MP3"
-dest_files=["res://.godot/imported/Musica unisouls 2.MP3-cfeefc20ba13ed39d411162fabc60b4b.mp3str"]
+source_file="res://scenes/Musica unisouls 2.MP3"
+dest_files=["res://.godot/imported/Musica unisouls 2.MP3-c874ca7a4e65fe09c8be9b8b0ddcb598.mp3str"]
 
 [params]
 

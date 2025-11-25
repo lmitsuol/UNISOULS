@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://cgy672fe8b3n3"]
+[gd_scene load_steps=77 format=3 uid="uid://cgy672fe8b3n3"]
 
 [ext_resource type="Script" uid="uid://7istsimmj82d" path="res://Player/player.gd" id="1_k53q1"]
 [ext_resource type="Texture2D" uid="uid://dktqpiyg5kkpd" path="res://assets/Knight/noBKG_KnightAttack_strip.png" id="2_fhl08"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cj4egl87v8ocv" path="res://assets/Knight/noBKG_KnightIdle_strip.png" id="4_od3ui"]
 [ext_resource type="Texture2D" uid="uid://ceia3hay7w4qm" path="res://assets/Knight/noBKG_KnightJumpAndFall_strip.png" id="5_00tjw"]
 [ext_resource type="Texture2D" uid="uid://ch80apvjfqdpn" path="res://assets/Knight/noBKG_KnightRun_strip.png" id="6_x3vf3"]
+[ext_resource type="Texture2D" uid="uid://jpshtn70xkrp" path="res://assets/Final/Salt.png" id="7_vtle1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_apopc"]
 atlas = ExtResource("2_fhl08")
@@ -536,6 +537,13 @@ one_shot = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
 position = Vector2(7.5, -48.5)
 shape = SubResource("RectangleShape2D_fhl08")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(6.500001, -52.499996)
+scale = Vector2(1.1339285, 0.37053573)
+energy = 1.39
+texture = ExtResource("7_vtle1")
+texture_scale = 0.76
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
