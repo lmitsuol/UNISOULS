@@ -147,7 +147,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hl87t"]
-size = Vector2(34, 12)
+size = Vector2(35, 12)
 
 [node name="Enemy-Bat" type="CharacterBody2D"]
 motion_mode = 1
@@ -167,7 +167,7 @@ flip_h = true
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-1, -1)
+position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_hl87t")
 
 [node name="Patrulha" type="Node2D" parent="."]
