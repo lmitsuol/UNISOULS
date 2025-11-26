@@ -24,21 +24,16 @@ signal boss_defeated
 func _ready():
 	add_to_group("Boss")
 
-	# Hitbox só ativa durante ataque
 	hitbox.monitoring = false
 	hitbox.monitorable = false
 	
-	# Detecção (visão)
 	detection_area.body_entered.connect(_on_detection_area_body_entered)
 	detection_area.body_exited.connect(_on_detection_area_body_exited)
 
-	# --- CORREÇÃO AQUI ---
-	# Removemos a conexão automática de dano aqui ou deixamos a função vazia lá embaixo.
-	# O Player já chama 'take_damage' manualmente quando ataca.
 	$Hurtbox.area_entered.connect(_on_hurtbox_area_entered)
 
-	# Dano NO player (quando o boss bate)
-	hitbox.body_entered.connect(_on_boss_hitbox_body_entered)
+	# CORREÇÃO AQUI ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+	hitbox.body_shape_entered.connect(_on_hitbox_enter)
 
 	emit_signal("health_changed", health, MAX_HEALTH)
 	anim.play("Idle")
@@ -52,7 +47,6 @@ func _physics_process(delta):
 		move_and_slide()
 		return
 
-	# gravidade
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
 
@@ -62,7 +56,6 @@ func _physics_process(delta):
 		var distance = global_position.distance_to(player_target.global_position)
 		var direction = sign(player_target.global_position.x - global_position.x)
 
-		# virar sprite
 		anim.flip_h = direction < 0
 
 		if distance <= ATTACK_RANGE:
@@ -79,39 +72,29 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-# ----------------------------
-# ATK
-# ----------------------------
-
+# ATAQUE
 func start_attack():
 	if anim.animation != "Attack":
 		anim.play("Attack")
 
-	# ativa hitbox só durante ataque
 	hitbox.monitoring = true
 	hitbox.monitorable = true
 
 func end_attack():
-	# desliga hitbox ao fim
 	hitbox.monitoring = false
 	hitbox.monitorable = false
-	can_attack = true
 
 
-# Dano no jogador (Boss batendo)
-func _on_boss_hitbox_body_entered(body):
-	if is_dying or not can_attack:
+# >>>>>>> FUNÇÃO CORRIGIDA <<<<<<<
+func _on_hitbox_enter(body_id, body, body_shape, local_shape):
+	if is_dying:
 		return
-	
+
 	if anim.animation == "Attack" and body.is_in_group("Player"):
 		body.take_damage(1)
-		can_attack = false 
 
 
-# ----------------------------
 # DETECÇÃO
-# ----------------------------
-
 func _on_detection_area_body_entered(body):
 	if body.is_in_group("Player"):
 		player_target = body
@@ -121,14 +104,8 @@ func _on_detection_area_body_exited(body):
 		player_target = null
 
 
-# ----------------------------
-# DANO RECEBIDO (CORRIGIDO)
-# ----------------------------
-
+# DANO RECEBIDO
 func _on_hurtbox_area_entered(area):
-	# CORREÇÃO: Deixamos vazio. 
-	# O script do Jogador já é responsável por calcular o acerto e chamar take_damage(1).
-	# Se deixarmos o código aqui, o Boss toma dano só de encostar na espada parada.
 	pass
 
 func take_damage(amount):
@@ -138,7 +115,6 @@ func take_damage(amount):
 	health -= amount
 	emit_signal("health_changed", health, MAX_HEALTH)
 
-	# feedback visual
 	modulate = Color(1, 0.3, 0.3)
 	await get_tree().create_timer(0.1).timeout
 	modulate = Color(1, 1, 1)
@@ -147,10 +123,7 @@ func take_damage(amount):
 		die()
 
 
-# ----------------------------
 # MORTE
-# ----------------------------
-
 func die():
 	if is_dying:
 		return
@@ -158,7 +131,6 @@ func die():
 	is_dying = true
 	anim.play("Death")
 
-	# desliga interações
 	$Hurtbox.set_deferred("monitoring", false)
 	detection_area.set_deferred("monitoring", false)
 	hitbox.set_deferred("monitoring", false)

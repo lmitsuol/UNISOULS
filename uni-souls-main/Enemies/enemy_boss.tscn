@@ -518,7 +518,7 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 light_mask = 4
 visibility_layer = 4
-position = Vector2(-32, 0)
+position = Vector2(-6, 0)
 shape = SubResource("RectangleShape2D_j6de0")
 debug_color = Color(0.9979996, 0, 0.1636788, 0.41960785)
 
