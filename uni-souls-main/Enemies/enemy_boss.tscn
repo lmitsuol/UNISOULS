@@ -480,7 +480,7 @@ size = Vector2(187.5, 33)
 size = Vector2(33, 37)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j6de0"]
-size = Vector2(33, 36)
+size = Vector2(55.5, 36)
 
 [node name="Enemy-Boss" type="CharacterBody2D" groups=["Boss"]]
 position = Vector2(1, 20)
@@ -496,10 +496,14 @@ position = Vector2(-3, -7)
 shape = SubResource("RectangleShape2D_h4tsq")
 
 [node name="DetectionArea" type="Area2D" parent="."]
+light_mask = 4
+visibility_layer = 4
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 position = Vector2(-47, -7)
 shape = SubResource("RectangleShape2D_2pp1f")
+debug_color = Color(0, 0.6340404, 0.4372359, 0.41960785)
 
 [node name="Hurtbox" type="Area2D" parent="."]
 
@@ -509,10 +513,14 @@ shape = SubResource("RectangleShape2D_8hc8g")
 
 [node name="Hitbox" type="Area2D" parent="."]
 position = Vector2(-3, -7)
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0.5, 0)
+light_mask = 4
+visibility_layer = 4
+position = Vector2(-32, 0)
 shape = SubResource("RectangleShape2D_j6de0")
+debug_color = Color(0.9979996, 0, 0.1636788, 0.41960785)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]

@@ -42,6 +42,9 @@ func respawn():
 	velocity = Vector2.ZERO
 	is_dying = false
 	is_hit = false
+	# Garante que o ataque reseta ao morrer/renascer
+	is_attacking = false
+	$AttackHitbox.monitoring = false
 	modulate = Color(1,1,1,1)
 	anim.play("Idle")
 	Global.player_lives = Global.max_lives
@@ -50,6 +53,10 @@ func respawn():
 # ---------------- MOVIMENTO ----------------
 
 func _physics_process(delta: float) -> void:
+	# Correção: Garante que a hitbox desligue se o estado de ataque for cancelado
+	if not is_attacking and $AttackHitbox.monitoring:
+		$AttackHitbox.set_deferred("monitoring", false)
+
 	if is_dying or is_attacking:
 		velocity.x = 0
 		if not is_on_floor():
@@ -75,7 +82,7 @@ func _physics_process(delta: float) -> void:
 		is_attacking = true
 		anim.play("Attack 1")
 		velocity.x = 0
-		$AttackHitbox.monitoring = true
+		$AttackHitbox.set_deferred("monitoring", true)
 		return
 
 	# Pulo
@@ -88,6 +95,12 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction * SPEED
 		anim.flip_h = direction < 0
+		
+		# Correção: Vira a hitbox junto com o sprite
+		if direction < 0:
+			$AttackHitbox.scale.x = -1
+		else:
+			$AttackHitbox.scale.x = 1
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
@@ -113,14 +126,19 @@ func _on_attack_hitbox_area_entered(area: Area2D) -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if anim.animation == "Attack 1":
 		is_attacking = false
-		$AttackHitbox.monitoring = false
+		$AttackHitbox.set_deferred("monitoring", false)
 
 
-# ------------- DANO / HIT -------------
+# ------------- DANO / HIT ----------------
 
 func take_damage(damage_amount: int = 1):
 	if is_hit or is_dying:
 		return
+	
+	# Correção: Cancela o ataque e desliga a hitbox ao tomar dano
+	if is_attacking:
+		is_attacking = false
+		$AttackHitbox.set_deferred("monitoring", false)
 		
 	is_hit = true
 	Global.player_lives -= damage_amount

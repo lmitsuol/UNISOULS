@@ -438,7 +438,7 @@ offset_bottom = 1270.0
 color = Color(0.09964379, 0.00697637, 0.018604971, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_b2mui")]
-position = Vector2(257, 1080)
+position = Vector2(2214, 1075)
 
 [node name="HUD" parent="." instance=ExtResource("3_q04ek")]
 offset = Vector2(70, 50)
@@ -448,8 +448,10 @@ transform = Transform2D(1.5, 0, 0, 1.5, 70, 50)
 [node name="Pause_menu" type="CanvasLayer" parent="."]
 
 [node name="Pause_menu" parent="Pause_menu" instance=ExtResource("4_l7on7")]
-offset_left = 6.0
-offset_right = 6.0
+offset_left = 2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = -2.0
 
 [node name="Enemy-Boss" parent="." instance=ExtResource("5_q04ek")]
 position = Vector2(2780, 1025)

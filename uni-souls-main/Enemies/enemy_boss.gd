@@ -2,14 +2,14 @@ extends CharacterBody2D
 
 const SPEED = 40.0
 const ATTACK_RANGE = 70.0
-const MAX_HEALTH = 10
+const MAX_HEALTH = 20
 var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 # Estado
 var health = MAX_HEALTH
 var is_dying = false
 var player_target = null
-var can_attack = true  # evita múltiplos danos por frame
+var can_attack = true
 
 # Sinais
 signal health_changed(new_health, max_health)
@@ -32,10 +32,12 @@ func _ready():
 	detection_area.body_entered.connect(_on_detection_area_body_entered)
 	detection_area.body_exited.connect(_on_detection_area_body_exited)
 
-	# Dano do player
+	# --- CORREÇÃO AQUI ---
+	# Removemos a conexão automática de dano aqui ou deixamos a função vazia lá embaixo.
+	# O Player já chama 'take_damage' manualmente quando ataca.
 	$Hurtbox.area_entered.connect(_on_hurtbox_area_entered)
 
-	# Dano no player
+	# Dano NO player (quando o boss bate)
 	hitbox.body_entered.connect(_on_boss_hitbox_body_entered)
 
 	emit_signal("health_changed", health, MAX_HEALTH)
@@ -96,14 +98,14 @@ func end_attack():
 	can_attack = true
 
 
-# Dano no jogador
+# Dano no jogador (Boss batendo)
 func _on_boss_hitbox_body_entered(body):
 	if is_dying or not can_attack:
 		return
 	
 	if anim.animation == "Attack" and body.is_in_group("Player"):
 		body.take_damage(1)
-		can_attack = false  # evita hits múltiplos até a hitbox desligar
+		can_attack = false 
 
 
 # ----------------------------
@@ -120,12 +122,14 @@ func _on_detection_area_body_exited(body):
 
 
 # ----------------------------
-# DANO RECEBIDO
+# DANO RECEBIDO (CORRIGIDO)
 # ----------------------------
 
 func _on_hurtbox_area_entered(area):
-	if area.is_in_group("PlayerHitbox"):
-		take_damage(1)
+	# CORREÇÃO: Deixamos vazio. 
+	# O script do Jogador já é responsável por calcular o acerto e chamar take_damage(1).
+	# Se deixarmos o código aqui, o Boss toma dano só de encostar na espada parada.
+	pass
 
 func take_damage(amount):
 	if is_dying:
