@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4e0tf70igdkr"]
+[gd_scene load_steps=12 format=3 uid="uid://c4e0tf70igdkr"]
 
 [ext_resource type="Texture2D" uid="uid://3nebr6m235v2" path="res://assets/Final/Tiles.png" id="1_4kqfc"]
 [ext_resource type="Script" uid="uid://def807ucsn2ig" path="res://Scenes/boss_room.gd" id="1_bnrw0"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dt8o0aa1jrcv1" path="res://Menu/pause_menu.tscn" id="4_l7on7"]
 [ext_resource type="PackedScene" uid="uid://cm6lt1h0t61yw" path="res://Enemies/enemy_boss.tscn" id="5_q04ek"]
 [ext_resource type="Script" uid="uid://dhdq40mkl3kkm" path="res://Scenes/BossHealthHUD.gd" id="6_l7on7"]
+[ext_resource type="Script" uid="uid://dyw0bqlju38cn" path="res://Scenes/checkpoint.gd" id="8_djbyv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0x2vs"]
 texture = ExtResource("1_4kqfc")
@@ -417,6 +418,9 @@ texture = ExtResource("1_4kqfc")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_0x2vs")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dc5tq"]
+size = Vector2(20, 80)
+
 [node name="Boss_Room" type="Node2D"]
 script = ExtResource("1_bnrw0")
 
@@ -459,3 +463,13 @@ offset_right = 256.0
 offset_bottom = 76.0
 max_value = 10.0
 script = ExtResource("6_l7on7")
+
+[node name="Checkpoint" type="Area2D" parent="."]
+position = Vector2(298, 1032)
+script = ExtResource("8_djbyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint"]
+position = Vector2(0, -25)
+shape = SubResource("RectangleShape2D_dc5tq")
+
+[connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_body_entered"]

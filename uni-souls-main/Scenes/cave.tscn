@@ -1,14 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://bytn08t4h0tr3"]
+[gd_scene load_steps=17 format=3 uid="uid://bytn08t4h0tr3"]
 
 [ext_resource type="Texture2D" uid="uid://3nebr6m235v2" path="res://assets/Final/Tiles.png" id="1_02alt"]
-[ext_resource type="Script" uid="uid://1n1k057pr4v8" path="res://scenes/cave.gd" id="1_yxobr"]
+[ext_resource type="Script" uid="uid://1n1k057pr4v8" path="res://Scenes/cave.gd" id="1_yxobr"]
 [ext_resource type="PackedScene" uid="uid://cgy672fe8b3n3" path="res://Player/player.tscn" id="2_3usej"]
-[ext_resource type="PackedScene" uid="uid://t8y8crswpi4o" path="res://scenes/parallax_cave.tscn" id="2_cameo"]
+[ext_resource type="PackedScene" uid="uid://t8y8crswpi4o" path="res://Scenes/parallax_cave.tscn" id="2_cameo"]
 [ext_resource type="PackedScene" uid="uid://dhwmgyg8qkbss" path="res://HUD/hud.tscn" id="3_yfbkh"]
 [ext_resource type="PackedScene" uid="uid://dt8o0aa1jrcv1" path="res://Menu/pause_menu.tscn" id="4_g4geh"]
 [ext_resource type="Texture2D" uid="uid://bbetj1a2p1kfm" path="res://assets/Tileset/Dungeon Tile Set/Dungeon Tile Set.png" id="4_h3csq"]
 [ext_resource type="PackedScene" uid="uid://bbs6yk65l2l6g" path="res://Enemies/enemy_wolf.tscn" id="5_g4geh"]
-[ext_resource type="Script" uid="uid://c5bbcnuvwbctk" path="res://scenes/boss_portal.gd" id="6_mp6fm"]
+[ext_resource type="Script" uid="uid://c5bbcnuvwbctk" path="res://Scenes/boss_portal.gd" id="6_mp6fm"]
+[ext_resource type="Script" uid="uid://dyw0bqlju38cn" path="res://Scenes/checkpoint.gd" id="10_rfl45"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_incdu"]
 texture = ExtResource("1_02alt")
@@ -551,6 +552,9 @@ size = Vector2(18, 144)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3csq"]
 size = Vector2(1004.875, 65.75)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t82ut"]
+size = Vector2(20, 80)
+
 [node name="Cave" type="Node2D"]
 script = ExtResource("1_yxobr")
 
@@ -622,5 +626,14 @@ shape = SubResource("RectangleShape2D_h3csq")
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.19607843, 0.19607843, 0.19607843, 1)
 
+[node name="Checkpoint" type="Area2D" parent="."]
+position = Vector2(-72, 97)
+script = ExtResource("10_rfl45")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint"]
+position = Vector2(0, -25)
+shape = SubResource("RectangleShape2D_t82ut")
+
 [connection signal="body_entered" from="Interact" to="." method="_on_interact_body_entered"]
 [connection signal="body_entered" from="Interact2" to="." method="_on_interact_2_body_entered"]
+[connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_body_entered"]

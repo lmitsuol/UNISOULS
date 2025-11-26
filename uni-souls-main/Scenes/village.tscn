@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://dvspxf00qs1j1"]
+[gd_scene load_steps=19 format=4 uid="uid://dvspxf00qs1j1"]
 
 [ext_resource type="Script" uid="uid://ddc7fdfneb681" path="res://Scenes/village.gd" id="1_78u5i"]
 [ext_resource type="Texture2D" uid="uid://cp0wapqyg5r2h" path="res://assets/Village/Texture/TX Tileset Ground.png" id="1_ofn1o"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://ddqrbr8x117n3" path="res://Scenes/cave_portal.gd" id="8_yf0b0"]
 [ext_resource type="PackedScene" uid="uid://dhwmgyg8qkbss" path="res://HUD/hud.tscn" id="9_7en6d"]
 [ext_resource type="PackedScene" uid="uid://dt8o0aa1jrcv1" path="res://Menu/pause_menu.tscn" id="10_lwl7v"]
+[ext_resource type="Script" uid="uid://dyw0bqlju38cn" path="res://Scenes/checkpoint.gd" id="11_lwl7v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vn26p"]
 texture = ExtResource("1_ofn1o")
@@ -2423,6 +2424,9 @@ size = Vector2(3559.625, 39)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ev5p"]
 size = Vector2(20, 258)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7en6d"]
+size = Vector2(20, 80)
+
 [node name="Village" type="Node2D"]
 script = ExtResource("1_78u5i")
 
@@ -2491,4 +2495,13 @@ offset_top = 1.0
 offset_right = 1.0
 offset_bottom = 1.0
 
+[node name="Checkpoint" type="Area2D" parent="."]
+position = Vector2(160, -31)
+script = ExtResource("11_lwl7v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint"]
+position = Vector2(0, -25)
+shape = SubResource("RectangleShape2D_7en6d")
+
 [connection signal="body_entered" from="Interact" to="." method="_on_interact_body_entered"]
+[connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_body_entered"]
