@@ -398,7 +398,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_n37tt")
 }],
-"loop": true,
+"loop": false,
 "name": &"Death",
 "speed": 5.0
 }, {
@@ -471,16 +471,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h4tsq"]
-size = Vector2(28.5, 38)
+size = Vector2(32, 38)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2pp1f"]
-size = Vector2(150.5, 33)
+size = Vector2(187.5, 33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8hc8g"]
-size = Vector2(31, 37)
+size = Vector2(33, 37)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j6de0"]
-size = Vector2(30, 27)
+size = Vector2(33, 36)
 
 [node name="Enemy-Boss" type="CharacterBody2D" groups=["Boss"]]
 position = Vector2(1, 20)
@@ -489,30 +489,29 @@ script = ExtResource("1_2pp1f")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_f37wc")
 animation = &"Attack"
-frame = 12
-frame_progress = 0.38631165
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.25, -7)
+position = Vector2(-3, -7)
 shape = SubResource("RectangleShape2D_h4tsq")
 
 [node name="DetectionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(-65.25, -6.5)
+position = Vector2(-47, -7)
 shape = SubResource("RectangleShape2D_2pp1f")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(-1.5, -8)
+position = Vector2(-2.5, -8)
 shape = SubResource("RectangleShape2D_8hc8g")
 
 [node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(-3, -7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-7, -7.5)
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_j6de0")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
