@@ -2441,7 +2441,7 @@ color = Color(0.22745098, 0.14117648, 0.31764707, 1)
 offset_left = -1503.0
 offset_top = 2.0
 offset_right = 5405.0
-offset_bottom = 315.0
+offset_bottom = 1053.0
 color = Color(0.17254902, 0.14509805, 0.27450982, 1)
 
 [node name="Paralax_village" parent="." instance=ExtResource("2_om0bm")]
@@ -2466,7 +2466,7 @@ text = "Cave"
 [node name="Interact" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interact"]
-position = Vector2(3681.1875, 129)
+position = Vector2(3577, 120)
 shape = SubResource("RectangleShape2D_om0bm")
 
 [node name="Player" parent="." instance=ExtResource("3_tmqdu")]
