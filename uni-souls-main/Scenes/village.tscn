@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://dvspxf00qs1j1"]
+[gd_scene load_steps=29 format=4 uid="uid://dvspxf00qs1j1"]
 
 [ext_resource type="Script" uid="uid://ddc7fdfneb681" path="res://Scenes/village.gd" id="1_78u5i"]
 [ext_resource type="Texture2D" uid="uid://cp0wapqyg5r2h" path="res://assets/Village/Texture/TX Tileset Ground.png" id="1_ofn1o"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://0p0ll5mwsdi3" path="res://Enemies/npc_vila.tscn" id="7_4ev5p"]
 [ext_resource type="Script" uid="uid://ddqrbr8x117n3" path="res://Scenes/cave_portal.gd" id="8_yf0b0"]
 [ext_resource type="PackedScene" uid="uid://dhwmgyg8qkbss" path="res://HUD/hud.tscn" id="9_7en6d"]
+[ext_resource type="Texture2D" uid="uid://bqktw0g66qonb" path="res://assets/portais/PORTAL BLUE-Sheet.png" id="9_d5xyy"]
 [ext_resource type="PackedScene" uid="uid://dt8o0aa1jrcv1" path="res://Menu/pause_menu.tscn" id="10_lwl7v"]
 [ext_resource type="Script" uid="uid://dyw0bqlju38cn" path="res://Scenes/checkpoint.gd" id="11_lwl7v"]
 
@@ -2422,7 +2423,71 @@ sources/2 = SubResource("TileSetAtlasSource_om0bm")
 size = Vector2(3559.625, 39)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ev5p"]
-size = Vector2(20, 258)
+size = Vector2(20, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cibu2"]
+atlas = ExtResource("9_d5xyy")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uog6"]
+atlas = ExtResource("9_d5xyy")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36r41"]
+atlas = ExtResource("9_d5xyy")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kq6pr"]
+atlas = ExtResource("9_d5xyy")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5f43a"]
+atlas = ExtResource("9_d5xyy")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0i4px"]
+atlas = ExtResource("9_d5xyy")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oveex"]
+atlas = ExtResource("9_d5xyy")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2h3s"]
+atlas = ExtResource("9_d5xyy")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cyvso"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cibu2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8uog6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36r41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kq6pr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5f43a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0i4px")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oveex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2h3s")
+}],
+"loop": true,
+"name": &"movimento",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7en6d"]
 size = Vector2(20, 80)
@@ -2479,8 +2544,14 @@ position = Vector2(3399.0002, -105)
 script = ExtResource("8_yf0b0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CavePortal"]
-position = Vector2(5247, -124)
+position = Vector2(5247, -36)
 shape = SubResource("RectangleShape2D_4ev5p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CavePortal"]
+position = Vector2(5243, -41.000004)
+scale = Vector2(1, 1.7500001)
+sprite_frames = SubResource("SpriteFrames_cyvso")
+animation = &"movimento"
 
 [node name="HUD" parent="." instance=ExtResource("9_7en6d")]
 offset = Vector2(70, 50)

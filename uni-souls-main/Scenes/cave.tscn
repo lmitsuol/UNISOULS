@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bytn08t4h0tr3"]
+[gd_scene load_steps=27 format=3 uid="uid://bytn08t4h0tr3"]
 
 [ext_resource type="Texture2D" uid="uid://3nebr6m235v2" path="res://assets/Final/Tiles.png" id="1_02alt"]
 [ext_resource type="Script" uid="uid://1n1k057pr4v8" path="res://Scenes/cave.gd" id="1_yxobr"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bbs6yk65l2l6g" path="res://Enemies/enemy_wolf.tscn" id="5_g4geh"]
 [ext_resource type="Script" uid="uid://c5bbcnuvwbctk" path="res://Scenes/boss_portal.gd" id="6_mp6fm"]
 [ext_resource type="Script" uid="uid://dyw0bqlju38cn" path="res://Scenes/checkpoint.gd" id="10_rfl45"]
+[ext_resource type="Texture2D" uid="uid://wyn5gpu2t2k8" path="res://assets/portais/portal-Sheet.png" id="10_t82ut"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_incdu"]
 texture = ExtResource("1_02alt")
@@ -547,7 +548,71 @@ sources/0 = SubResource("TileSetAtlasSource_incdu")
 sources/1 = SubResource("TileSetAtlasSource_rfl45")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4geh"]
-size = Vector2(18, 144)
+size = Vector2(23, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t82ut"]
+atlas = ExtResource("10_t82ut")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8nqp"]
+atlas = ExtResource("10_t82ut")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_826tw"]
+atlas = ExtResource("10_t82ut")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehcl6"]
+atlas = ExtResource("10_t82ut")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcsno"]
+atlas = ExtResource("10_t82ut")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6l6x"]
+atlas = ExtResource("10_t82ut")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mceht"]
+atlas = ExtResource("10_t82ut")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2jap"]
+atlas = ExtResource("10_t82ut")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6d7us"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t82ut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8nqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_826tw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehcl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gcsno")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6l6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mceht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2jap")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3csq"]
 size = Vector2(1004.875, 65.75)
@@ -608,8 +673,13 @@ position = Vector2(1656, -157)
 script = ExtResource("6_mp6fm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossPortal"]
-position = Vector2(1892, -1025)
+position = Vector2(1886.5, -992)
 shape = SubResource("RectangleShape2D_g4geh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BossPortal"]
+position = Vector2(1879, -998)
+scale = Vector2(1, 1.609375)
+sprite_frames = SubResource("SpriteFrames_6d7us")
 
 [node name="Interact" type="Area2D" parent="."]
 
