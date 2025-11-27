@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://dvspxf00qs1j1"]
+[gd_scene load_steps=31 format=4 uid="uid://dvspxf00qs1j1"]
 
 [ext_resource type="Script" uid="uid://ddc7fdfneb681" path="res://Scenes/village.gd" id="1_78u5i"]
 [ext_resource type="Texture2D" uid="uid://cp0wapqyg5r2h" path="res://assets/Village/Texture/TX Tileset Ground.png" id="1_ofn1o"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://bqktw0g66qonb" path="res://assets/portais/PORTAL BLUE-Sheet.png" id="9_d5xyy"]
 [ext_resource type="PackedScene" uid="uid://dt8o0aa1jrcv1" path="res://Menu/pause_menu.tscn" id="10_lwl7v"]
 [ext_resource type="Script" uid="uid://dyw0bqlju38cn" path="res://Scenes/checkpoint.gd" id="11_lwl7v"]
+[ext_resource type="PackedScene" uid="uid://bbs6yk65l2l6g" path="res://Enemies/enemy_wolf.tscn" id="13_8uog6"]
+[ext_resource type="PackedScene" uid="uid://bhidh1cac4oju" path="res://Enemies/enemy_bat.tscn" id="14_36r41"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vn26p"]
 texture = ExtResource("1_ofn1o")
@@ -2573,6 +2575,30 @@ script = ExtResource("11_lwl7v")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint"]
 position = Vector2(0, -25)
 shape = SubResource("RectangleShape2D_7en6d")
+
+[node name="Enemy-Wolf" parent="." instance=ExtResource("13_8uog6")]
+position = Vector2(905, -31)
+
+[node name="Enemy-Bat" parent="." instance=ExtResource("14_36r41")]
+position = Vector2(904, -66)
+
+[node name="Enemy-Wolf2" parent="." instance=ExtResource("13_8uog6")]
+position = Vector2(1350, -114)
+
+[node name="Enemy-Bat2" parent="." instance=ExtResource("14_36r41")]
+position = Vector2(1987, -78)
+
+[node name="Enemy-Bat3" parent="." instance=ExtResource("14_36r41")]
+position = Vector2(2602, -177)
+
+[node name="Enemy-Wolf3" parent="." instance=ExtResource("13_8uog6")]
+position = Vector2(1799, -64)
+
+[node name="Enemy-Wolf4" parent="." instance=ExtResource("13_8uog6")]
+position = Vector2(4228, -66)
+
+[node name="Enemy-Bat4" parent="." instance=ExtResource("14_36r41")]
+position = Vector2(4642, 3)
 
 [connection signal="body_entered" from="Interact" to="." method="_on_interact_body_entered"]
 [connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_body_entered"]

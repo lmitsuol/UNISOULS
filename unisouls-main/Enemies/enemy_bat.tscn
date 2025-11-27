@@ -150,6 +150,7 @@ animations = [{
 size = Vector2(35, 12)
 
 [node name="Enemy-Bat" type="CharacterBody2D"]
+scale = Vector2(1.4, 1.4)
 motion_mode = 1
 script = ExtResource("1_hl87t")
 

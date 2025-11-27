@@ -484,6 +484,7 @@ size = Vector2(55, 28)
 
 [node name="Enemy-Boss" type="CharacterBody2D" groups=["Boss"]]
 position = Vector2(1, 20)
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_2pp1f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -3838,4 +3838,16 @@ scale = Vector2(0.97265625, 1.78125)
 sprite_frames = SubResource("SpriteFrames_81klo")
 animation = &"movimento"
 
+[node name="Enemy-Bat2" parent="." instance=ExtResource("15_nnt18")]
+position = Vector2(1301, 64)
+
+[node name="Enemy-Wolf2" parent="." instance=ExtResource("16_ewbju")]
+position = Vector2(1499, 166)
+
+[node name="Enemy-Wolf3" parent="." instance=ExtResource("16_ewbju")]
+position = Vector2(2119, 168)
+
+[node name="Enemy-Bat3" parent="." instance=ExtResource("15_nnt18")]
+position = Vector2(2105, 62)
+
 [connection signal="body_entered" from="Interact" to="." method="_on_interact_body_entered"]
