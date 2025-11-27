@@ -434,7 +434,8 @@ flip_h = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 16
 visibility_layer = 16
-position = Vector2(-1, 0)
+position = Vector2(-0.99999994, 0)
+scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_28yls")
 
 [node name="Hitbox" type="Area2D" parent="."]
@@ -442,7 +443,8 @@ light_mask = 4
 visibility_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-1, -0.5)
+position = Vector2(-0.99999994, -0.49999997)
+scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_fau2m")
 
 [node name="Vision" type="Area2D" parent="."]
@@ -451,14 +453,15 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
 light_mask = 4
 visibility_layer = 4
-position = Vector2(-18.5, -1.5)
+position = Vector2(-18.499998, -1.4999999)
+scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_rcfxn")
 
 [node name="Ataque Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ataque Hitbox"]
-position = Vector2(-0.49999982, -1.2857145)
-scale = Vector2(0.9999998, 0.9999998)
+position = Vector2(-0.4999998, -1.2857144)
+scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_1wir4")
 debug_color = Color(0.9970053, 0, 0.1846224, 0.41960785)
 
