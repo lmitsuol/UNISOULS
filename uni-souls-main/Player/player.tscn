@@ -540,6 +540,7 @@ shape = SubResource("RectangleShape2D_fhl08")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(0, -48)
+enabled = false
 energy = 0.5
 texture = ExtResource("7_vtle1")
 texture_scale = 0.6

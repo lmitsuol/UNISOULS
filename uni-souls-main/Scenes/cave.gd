@@ -1,16 +1,20 @@
 extends Node2D
 
+var player_light: PointLight2D = null
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Music.play_music("caverna")
 	Global.set_current_area("A Caverna")
+	
+	var player_node = get_node_or_null("Player") 
+	if player_node:
+		player_light = player_node.get_node_or_null("PointLight2D")
+		
+	if player_light:
+		player_light.set_enabled(true)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
 
 func _on_interact_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
