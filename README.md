@@ -72,7 +72,7 @@ O jogo possui uma progressão narrativa através de fases interligadas:
 
 ## 👥 Equipe e Créditos
 
-Este projeto foi desenvolvido e orientado na Universidade do Sul de Santa Catarina (USC).
+Este projeto foi desenvolvido e orientado na Universidade do Sul de Santa Catarina (UNISUL).
 
 ### Desenvolvedores
 
@@ -84,7 +84,7 @@ Este projeto foi desenvolvido e orientado na Universidade do Sul de Santa Catari
 | Victor Hasse | 10724111755 | [@victorhasse](https://github.com/victorhasse) |
 | Ester da Rosa Mariani | 10725115450 | [@Estermrn](https://github.com/Estermrn) |
 
-### Orientação
+### Orientação (Professores da UNISUL)
 
 * Prof. Cláudio Henrique da Silva
 * Prof. Saulo Popov Zambiasi
