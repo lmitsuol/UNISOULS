@@ -19,10 +19,15 @@ signal boss_defeated
 @onready var anim = $AnimatedSprite2D
 @onready var detection_area = $DetectionArea
 @onready var hitbox = $Hitbox
-
+@onready var attack_sound = $Attack
+@onready var walk_sound = $Walk
+@onready var death_sound = $Death
+@onready var health_bar = $BossHealthBar
 
 func _ready():
 	add_to_group("Boss")
+	
+	health_bar.init_health(health)
 
 	hitbox.monitoring = false
 	hitbox.monitorable = false
@@ -61,12 +66,16 @@ func _physics_process(delta):
 		if distance <= ATTACK_RANGE:
 			velocity.x = 0
 			start_attack()
+			walk_sound.stop()
 		else:
 			movement.x = direction * SPEED
 			anim.play("Walk")
+			if not walk_sound.playing:
+				walk_sound.play()
 	else:
 		movement.x = move_toward(velocity.x, 0, SPEED)
 		anim.play("Idle")
+		walk_sound.stop()
 
 	velocity.x = movement.x
 	move_and_slide()
@@ -76,6 +85,7 @@ func _physics_process(delta):
 func start_attack():
 	if anim.animation != "Attack":
 		anim.play("Attack")
+		attack_sound.play()
 
 	hitbox.monitoring = true
 	hitbox.monitorable = true
@@ -121,8 +131,9 @@ func take_damage(amount):
 
 	if health <= 0:
 		die()
-
-
+	
+	health_bar.health = health
+	
 # MORTE
 func die():
 	if is_dying:
@@ -130,6 +141,7 @@ func die():
 
 	is_dying = true
 	anim.play("Death")
+	death_sound.play()
 
 	$Hurtbox.set_deferred("monitoring", false)
 	detection_area.set_deferred("monitoring", false)
@@ -141,4 +153,3 @@ func die():
 func _on_anim_finished():
 	if anim.animation == "Death":
 		emit_signal("boss_defeated")
-		queue_free()

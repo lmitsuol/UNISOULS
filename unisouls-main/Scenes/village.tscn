@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://dvspxf00qs1j1"]
+[gd_scene load_steps=41 format=4 uid="uid://dvspxf00qs1j1"]
 
 [ext_resource type="Script" uid="uid://ddc7fdfneb681" path="res://Scenes/village.gd" id="1_78u5i"]
 [ext_resource type="Texture2D" uid="uid://cp0wapqyg5r2h" path="res://assets/Village/Texture/TX Tileset Ground.png" id="1_ofn1o"]
@@ -13,7 +13,16 @@
 [ext_resource type="PackedScene" uid="uid://dt8o0aa1jrcv1" path="res://Menu/pause_menu.tscn" id="10_lwl7v"]
 [ext_resource type="Script" uid="uid://dyw0bqlju38cn" path="res://Scenes/checkpoint.gd" id="11_lwl7v"]
 [ext_resource type="PackedScene" uid="uid://bbs6yk65l2l6g" path="res://Enemies/enemy_wolf.tscn" id="13_8uog6"]
+[ext_resource type="Texture2D" uid="uid://bh5ernie2vw0f" path="res://assets/checkpoint/CampFire1.png" id="13_nwfgd"]
 [ext_resource type="PackedScene" uid="uid://bhidh1cac4oju" path="res://Enemies/enemy_bat.tscn" id="14_36r41"]
+[ext_resource type="Texture2D" uid="uid://c84hmtcl7c57t" path="res://assets/checkpoint/CampFire2.png" id="14_vfnj5"]
+[ext_resource type="Texture2D" uid="uid://8hq7047o1wyb" path="res://assets/checkpoint/CampFire3.png" id="15_jywkh"]
+[ext_resource type="Texture2D" uid="uid://7hdv6pbgp1gr" path="res://assets/checkpoint/CampFire4.png" id="16_t7qna"]
+[ext_resource type="Texture2D" uid="uid://crtyvohfb1qko" path="res://assets/checkpoint/CampFire5.png" id="17_q8fu0"]
+[ext_resource type="Texture2D" uid="uid://57gcqcgqwq4s" path="res://assets/checkpoint/CampFire6.png" id="18_60q8h"]
+[ext_resource type="Texture2D" uid="uid://b0q231wpahusb" path="res://assets/checkpoint/CampFire7.png" id="19_xj4o5"]
+[ext_resource type="Texture2D" uid="uid://c1mm4s4xx8hl6" path="res://assets/checkpoint/CampFire0.png" id="20_2k8rw"]
+[ext_resource type="AudioStream" uid="uid://d1djn0esn44nc" path="res://assets/sound-effects/campfire.mp3" id="21_vfnj5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vn26p"]
 texture = ExtResource("1_ofn1o")
@@ -2494,6 +2503,43 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7en6d"]
 size = Vector2(20, 80)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_4efb2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_nwfgd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_vfnj5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_jywkh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_t7qna")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_q8fu0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_60q8h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_xj4o5")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_2k8rw")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}]
+
 [node name="Village" type="Node2D"]
 script = ExtResource("1_78u5i")
 
@@ -2508,7 +2554,7 @@ color = Color(0.22745098, 0.14117648, 0.31764707, 1)
 offset_left = -1503.0
 offset_top = 2.0
 offset_right = 5405.0
-offset_bottom = 1053.0
+offset_bottom = 10041.0
 color = Color(0.17254902, 0.14509805, 0.27450982, 1)
 
 [node name="Paralax_village" parent="." instance=ExtResource("2_om0bm")]
@@ -2573,8 +2619,19 @@ position = Vector2(160, -31)
 script = ExtResource("11_lwl7v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint"]
-position = Vector2(0, -25)
+position = Vector2(65, -25)
 shape = SubResource("RectangleShape2D_7en6d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Checkpoint"]
+position = Vector2(64, 1)
+scale = Vector2(0.43023255, 0.43023255)
+sprite_frames = SubResource("SpriteFrames_4efb2")
+animation = &"normal"
+
+[node name="campfire" type="AudioStreamPlayer2D" parent="Checkpoint"]
+stream = ExtResource("21_vfnj5")
+volume_db = 24.0
+max_distance = 200.0
 
 [node name="Enemy-Wolf" parent="." instance=ExtResource("13_8uog6")]
 position = Vector2(905, -31)

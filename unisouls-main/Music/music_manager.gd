@@ -6,7 +6,8 @@ var music_tracks = {
 	"gameover": preload("res://Music/GameOver_Song.mp3"),
 	"caverna": preload("res://Music/Musica unisouls 2.MP3"),
 	"vila": preload("res://Music/Musica Unisouls 3.MP3"),
-	"boss": preload("res://Music/Musica Unisouls 4.MP3")
+	"boss": preload("res://Music/Musica Unisouls 4.MP3"),
+	"end": preload("res://Music/Triumphant Shadows.mp3")
 }
 
 var current_track = ""

@@ -1,8 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://bhidh1cac4oju"]
+[gd_scene load_steps=27 format=3 uid="uid://bhidh1cac4oju"]
 
 [ext_resource type="Texture2D" uid="uid://cm1kfhcvbbdur" path="res://assets/Enemies/Bat/noBKG_BatDeath_strip.png" id="1_2k0u4"]
 [ext_resource type="Script" uid="uid://bvm2ju8tp3dfj" path="res://Enemies/enemy_bat.gd" id="1_hl87t"]
 [ext_resource type="Texture2D" uid="uid://btywuo3ykvu5j" path="res://assets/Enemies/Bat/noBKG_BatFlight_strip.png" id="2_hl87t"]
+[ext_resource type="AudioStream" uid="uid://buneybhjorr12" path="res://assets/sound-effects/BatFlying-SoundEffect.mp3" id="4_3181p"]
+[ext_resource type="AudioStream" uid="uid://gfmd10rqyak3" path="res://assets/sound-effects/BatDeath-SoundEffect.mp3" id="5_gjw2w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2k0u4"]
 size = Vector2(33.5, 11)
@@ -178,3 +180,11 @@ position = Vector2(-70, 0)
 
 [node name="PatrolPointB" type="Marker2D" parent="Patrulha"]
 position = Vector2(70, 0)
+
+[node name="Fly" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_3181p")
+max_distance = 300.0
+attenuation = 1.5157199
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_gjw2w")

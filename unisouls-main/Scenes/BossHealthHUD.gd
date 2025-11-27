@@ -1,20 +1,29 @@
 extends ProgressBar
 
-func _ready():
-	var boss = get_tree().get_first_node_in_group("Boss")
-	if boss:
-		# Conecta o sinal health_changed do Boss à função update_health_bar
-		boss.health_changed.connect(update_health_bar)
-		if boss.has_method("get_max_health"):
-			max_value = boss.get_max_health()
-		else:
-			max_value = boss.MAX_HEALTH
+@onready var timer = $Timer
+@onready var damage_bar = $damagebar
 
-func update_health_bar(current_health: int, _max_health: int):
-	# Atualiza o valor da barra de vida
-	value = current_health
+var health = 0 : set = _set_health
+
+func _set_health(new_health):
+	var prev_health = health
+	health = min(max_value, new_health)
+	value = health
 	
-	# Efeito de flash na barra
-	modulate = Color(1, 1, 0.5)
-	await get_tree().create_timer(0.05).timeout
-	modulate = Color(1, 1, 1)
+	if health <= 0:
+		queue_free()
+		
+	if health < prev_health:
+		timer.start()
+	else:
+		damage_bar.value = health
+		
+func init_health(_health):
+	health = _health
+	max_value = health
+	value = health
+	damage_bar.max_value = health
+	damage_bar.value = health
+
+func _on_timer_timeout() -> void:
+	damage_bar.value = health

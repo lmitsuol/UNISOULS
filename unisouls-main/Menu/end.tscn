@@ -1,17 +1,64 @@
-[gd_scene format=3 uid="uid://bfdw6heuu2u7f"]
+[gd_scene load_steps=4 format=3 uid="uid://bfdw6heuu2u7f"]
+
+[ext_resource type="FontFile" uid="uid://cu1cumga6pjeb" path="res://Fonts/Broken Up.ttf" id="1_77mra"]
+[ext_resource type="Script" uid="uid://dyvh3gbfippu2" path="res://Menu/end.gd" id="1_rclu8"]
+[ext_resource type="FontFile" uid="uid://e6qx2os3qjut" path="res://Fonts/Roboto/static/Roboto-ExtraBold.ttf" id="3_igi1x"]
 
 [node name="End" type="Node2D"]
+script = ExtResource("1_rclu8")
 
-[node name="Control" type="Control" parent="."]
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D"]
+offset_left = -2090.0
+offset_top = -1394.0
+offset_right = 2156.0
+offset_bottom = 1202.0
+color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="Camera2D"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "The End! :)"
+[node name="the-end" type="Label" parent="Camera2D/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -747.0
+offset_top = -489.0
+offset_right = 747.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9607843, 0.6509804, 0.29803923, 1)
+theme_override_fonts/font = ExtResource("1_77mra")
+theme_override_font_sizes/font_size = 300
+text = "fim de jogo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="victory" type="Label" parent="Camera2D/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1822.5
+offset_top = 11.0
+offset_right = 1822.5
+offset_bottom = 424.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_igi1x")
+theme_override_font_sizes/font_size = 120
+text = "Parabéns pela vitória!
+Aurion conseguiu derrotar o Golem e salvou a vila!"
 horizontal_alignment = 1
 vertical_alignment = 1

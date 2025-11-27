@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cmuainyyv250y"
+path="res://.godot/imported/Triumphant Shadows.mp3-027a58bca3084c48dfa5715e28223685.mp3str"
+
+[deps]
+
+source_file="res://Music/Triumphant Shadows.mp3"
+dest_files=["res://.godot/imported/Triumphant Shadows.mp3-027a58bca3084c48dfa5715e28223685.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

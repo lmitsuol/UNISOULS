@@ -6,6 +6,7 @@ var is_attacking = false
 var is_jumping = false
 var is_dying = false
 var is_hit = false
+var is_walking = false
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -370.0
@@ -21,6 +22,9 @@ var start_position: Vector2
 @onready var anim = $AnimatedSprite2D
 @onready var death_timer = $Death_Timer
 @onready var invincibility_timer = $InvincibilityTimer
+@onready var attack_sound = $Attack
+@onready var walk_sound = $Walk
+@onready var jump_sound = $Jump
 
 func _ready() -> void:
 	start_position = global_position
@@ -28,7 +32,6 @@ func _ready() -> void:
 	death_timer.connect("timeout", Callable(self, "_on_DeathTimer_timeout"))
 	invincibility_timer.timeout.connect(_on_InvincibilityTimer_timeout)
 	$AttackHitbox.monitoring = false
-
 
 # ---------------- CHECKPOINT ----------------
 
@@ -81,6 +84,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Atacar") and not is_attacking:
 		is_attacking = true
 		anim.play("Attack 1")
+		attack_sound.play()
 		velocity.x = 0
 		$AttackHitbox.set_deferred("monitoring", true)
 		return
@@ -89,6 +93,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		is_jumping = true
+		jump_sound.play()
 
 	# Movimento
 	var direction := Input.get_axis("ui_left", "ui_right")
@@ -139,6 +144,8 @@ func take_damage(damage_amount: int = 1):
 	if is_attacking:
 		is_attacking = false
 		$AttackHitbox.set_deferred("monitoring", false)
+	if walk_sound.is_playing():
+			walk_sound.stop()
 		
 	is_hit = true
 	Global.player_lives -= damage_amount
@@ -181,6 +188,9 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 # ------------------- MORTE -------------------
 
 func die():
+	if walk_sound.is_playing():
+			walk_sound.stop()
+			
 	if last_checkpoint_pos != Vector2.ZERO:
 		print("Voltando ao checkpoint!")
 		await get_tree().create_timer(1.0).timeout
@@ -205,15 +215,23 @@ func update_animation(direction):
 		return
 
 	if is_attacking:
+		if walk_sound.is_playing():
+			walk_sound.stop()
 		return
 
 	if is_jumping:
 		anim.play("Jump")
+		if walk_sound.is_playing():
+			walk_sound.stop()
 	elif direction != 0:
 		anim.flip_h = (direction < 0)
 		anim.play("Walk")
+		if walk_sound.is_playing():
+			walk_sound.stop()
 	else:
 		anim.play("Idle")
+		if walk_sound.is_playing():
+			walk_sound.stop()
 
 
 # Timer removido porque recarregar a cena destrói o checkpoint

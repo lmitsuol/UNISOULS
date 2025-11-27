@@ -1,0 +1,273 @@
+[gd_scene load_steps=11 format=3 uid="uid://bqk0gfmkgb8pr"]
+
+[ext_resource type="Script" uid="uid://bldf516d65ifn" path="res://Menu/credits.gd" id="1_cuhvm"]
+[ext_resource type="FontFile" uid="uid://cu1cumga6pjeb" path="res://Fonts/Broken Up.ttf" id="2_05okb"]
+[ext_resource type="Texture2D" uid="uid://cfa1quq3a1jvk" path="res://assets/arts/AurionAndWolves.png" id="2_ak2du"]
+[ext_resource type="FontFile" uid="uid://oh7s4mkcq112" path="res://Fonts/Roboto/static/Roboto-Bold.ttf" id="3_e2ref"]
+[ext_resource type="Texture2D" uid="uid://ba6t0e4g02khx" path="res://assets/arts/AurionFarming.png" id="3_j5o16"]
+[ext_resource type="Texture2D" uid="uid://c4gdncsgn0sw2" path="res://assets/arts/AurionVsGolem.png" id="4_05okb"]
+[ext_resource type="Texture2D" uid="uid://q275wuhjn15r" path="res://assets/arts/AurionTheSavior.png" id="5_e2ref"]
+
+[sub_resource type="Animation" id="Animation_bishx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0009999999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-187.34, 1200), Vector2(-187.34, 1000)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../TextureRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../TextureRect2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../TextureRect3:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../TextureRect4:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_cuhvm"]
+resource_name = "scroll_credits"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-187.34, 1200), Vector2(-187.34, -3500)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../TextureRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5.04, 30),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../TextureRect2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 10.05, 30),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../TextureRect3:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 15.0292, 30),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../TextureRect4:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 19.994, 30),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bishx"]
+_data = {
+&"RESET": SubResource("Animation_bishx"),
+&"scroll_credits": SubResource("Animation_cuhvm")
+}
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_cuhvm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -108.0
+offset_top = -54.0
+offset_right = 2036.0
+offset_bottom = 1182.0
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = -187.34
+offset_top = 1200.0
+offset_right = 2124.66
+offset_bottom = 4592.005
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="unisouls" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_05okb")
+theme_override_font_sizes/font_size = 150
+text = "Unisouls"
+horizontal_alignment = 1
+
+[node name="texto" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/line_spacing = 10
+theme_override_fonts/font = ExtResource("3_e2ref")
+theme_override_font_sizes/font_size = 35
+text = "----------------------------------------
+
+Uma Produção
+
+Universidade do Sul de Santa Catarina 
+UNISUL
+
+----------------------------------------
+
+Equipe de Desenvolvimento:
+
+
+Bernardo Santos Vieira
+
+Ester da Rosa Mariani
+
+Guilherme Mitsuo Honda
+
+Igor Vinicius Sotili Mirandolli
+
+Victor Hasse 
+
+----------------------------------------
+
+Game Design & Roteiro:
+
+
+Bernardo Santos Vieira 
+
+Ester da Rosa Mariani 
+
+Guilherme Mitsuo Honda 
+
+Igor Vinicius Sotili Mirandolli
+
+Victor Hasse 
+
+----------------------------------------
+
+Programação & Arte Pixel:
+
+BIGVE Studios
+
+Desenvolvido em Godot Engine 4.5
+
+----------------------------------------
+
+Orientação e Agradecimentos Especiais:
+
+
+ Prof. Cláudio Henrique da Silva
+
+Prof. Saulo Popov Zambiasi 
+
+Florianópolis, 2025"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../VBoxContainer")
+libraries = {
+&"": SubResource("AnimationLibrary_bishx")
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+offset_left = 178.0
+offset_top = 225.0
+offset_right = 524.7065
+offset_bottom = 506.0
+texture = ExtResource("2_ak2du")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
+offset_left = 195.0
+offset_top = 614.0
+offset_right = 541.7065
+offset_bottom = 895.0
+texture = ExtResource("3_j5o16")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+visible = false
+offset_left = 1387.0
+offset_top = 204.0
+offset_right = 1733.7065
+offset_bottom = 485.0
+texture = ExtResource("4_05okb")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+visible = false
+offset_left = 1426.0
+offset_top = 613.0
+offset_right = 1772.7065
+offset_bottom = 894.0
+texture = ExtResource("5_e2ref")
+expand_mode = 1

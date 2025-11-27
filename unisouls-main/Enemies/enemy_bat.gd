@@ -10,6 +10,8 @@ var is_dying = false
 @onready var point_a = $Patrulha/PatrolPointA.global_position
 @onready var point_b = $Patrulha/PatrolPointB.global_position
 @onready var hitbox = $Hitbox # Area2D
+@onready var fly_sound = $Fly
+@onready var death_sound = $Death
 
 func _ready():
 	add_to_group("Enemy")
@@ -19,7 +21,7 @@ func _ready():
 	direction = sign(point_b.x - global_position.x)
 	anim.play("Walk")
 	anim.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
-
+	fly_sound.play()
 
 func _physics_process(delta):
 	
@@ -61,9 +63,12 @@ func die():
 		return
 		
 	is_dying = true
-	anim.play("Death") 
+	anim.play("Death")
+	death_sound.play()
 	# Desativa a Hitbox para que o Player não tome mais dano dele
 	hitbox.set_deferred("monitoring", false) 
+	
+	fly_sound.stop()
 	
 # Função que remove o inimigo após a animação de Morte
 func _on_animated_sprite_2d_animation_finished():

@@ -16,6 +16,9 @@ var can_attack = true
 @onready var vision = $Vision
 # IMPORTANTE: Certifique-se que o nome do nó no editor é exatamente "Ataque Hitbox"
 @onready var attack_area = $"Ataque Hitbox" 
+@onready var attack_sound = $Attack
+@onready var walk_sound = $Walk
+@onready var death_sound = $Death
 
 func _ready():
 	add_to_group("Enemy")
@@ -30,11 +33,15 @@ func _physics_process(delta):
 	if is_dying:
 		velocity.x = 0
 		move_and_slide()
+		if walk_sound.playing:
+			walk_sound.stop()
 		return
 
 	if is_attacking:
 		velocity.x = 0
 		move_and_slide()
+		if walk_sound.playing:
+			walk_sound.stop()
 		return 
 		
 	var movement = Vector2.ZERO
@@ -56,10 +63,14 @@ func _physics_process(delta):
 		else:
 			movement.x = direction * SPEED
 			anim.play("Walk")
+			if not walk_sound.playing:
+				walk_sound.play()
 			
 	else:
 		movement.x = move_toward(velocity.x, 0, SPEED)
 		anim.play("Idle")
+		if walk_sound.playing:
+			walk_sound.stop()
 
 	velocity.x = movement.x
 	move_and_slide()
@@ -68,6 +79,7 @@ func start_attack():
 	is_attacking = true
 	can_attack = false
 	anim.play("Attack")
+	attack_sound.play()
 	
 	# 0.4 segundos é uma sugestão. Ajuste esse tempo para casar com a animação da mordida
 	await get_tree().create_timer(0.4).timeout 
@@ -120,6 +132,12 @@ func die():
 	if is_dying: return
 	is_dying = true
 	anim.play("Death")
+	death_sound.play()
+	
+	if walk_sound.playing:
+		walk_sound.stop()
+	if attack_sound.playing:
+		attack_sound.stop()
 	
 	vision.set_deferred("monitoring", false)
 	attack_area.set_deferred("monitoring", false)

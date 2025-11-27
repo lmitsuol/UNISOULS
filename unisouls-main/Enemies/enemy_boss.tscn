@@ -1,10 +1,14 @@
-[gd_scene load_steps=74 format=3 uid="uid://cm6lt1h0t61yw"]
+[gd_scene load_steps=78 format=3 uid="uid://cm6lt1h0t61yw"]
 
 [ext_resource type="Script" uid="uid://c0qrbng8obwtm" path="res://Enemies/enemy_boss.gd" id="1_2pp1f"]
 [ext_resource type="Texture2D" uid="uid://diuf8bdj5llcp" path="res://assets/Enemies/Golem/noBKG_GolemAttack_strip.png" id="1_h4tsq"]
 [ext_resource type="Texture2D" uid="uid://bpl5juf7uugas" path="res://assets/Enemies/Golem/noBKG_GolemDeath_strip.png" id="2_2pp1f"]
 [ext_resource type="Texture2D" uid="uid://b8ewo812mj01j" path="res://assets/Enemies/Golem/noBKG_GolemWalk_strip.png" id="3_8hc8g"]
 [ext_resource type="Texture2D" uid="uid://bucerkehh4ga3" path="res://assets/Enemies/Golem/noBKG_GolemIdle_strip.png" id="4_8hc8g"]
+[ext_resource type="AudioStream" uid="uid://c6yeyor8rk443" path="res://assets/sound-effects/Boss-attack.mp3" id="6_ysah5"]
+[ext_resource type="AudioStream" uid="uid://b6l48g7svdrfw" path="res://assets/sound-effects/Boss-walk.mp3" id="7_8smk6"]
+[ext_resource type="AudioStream" uid="uid://d0k0ddpaelt28" path="res://assets/sound-effects/Boss-death.mp3" id="8_wrpej"]
+[ext_resource type="PackedScene" uid="uid://byfhld6p3h1go" path="res://HUD/boss_health_bar.tscn" id="9_8smk6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j6de0"]
 atlas = ExtResource("1_h4tsq")
@@ -480,7 +484,7 @@ size = Vector2(187.5, 33)
 size = Vector2(33, 37)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j6de0"]
-size = Vector2(55, 28)
+size = Vector2(55, 35.666668)
 
 [node name="Enemy-Boss" type="CharacterBody2D" groups=["Boss"]]
 position = Vector2(1, 20)
@@ -519,9 +523,24 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 light_mask = 4
 visibility_layer = 4
-position = Vector2(5.5, 4)
+position = Vector2(5.5, 0.16666603)
 shape = SubResource("RectangleShape2D_j6de0")
 debug_color = Color(0.9979996, 0, 0.1636788, 0.41960785)
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ysah5")
+
+[node name="Walk" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_8smk6")
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_wrpej")
+
+[node name="BossHealthBar" parent="." instance=ExtResource("9_8smk6")]
+offset_left = -38.0
+offset_top = -38.0
+offset_right = 50.66667
+offset_bottom = -35.333332
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]

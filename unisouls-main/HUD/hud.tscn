@@ -47,3 +47,12 @@ theme_override_font_sizes/font_size = 48
 text = "NOME DA CENA"
 horizontal_alignment = 1
 script = ExtResource("5_1rsjr")
+
+[node name="AurionName" type="Label" parent="."]
+offset_left = 6.0
+offset_top = 71.0
+offset_right = 63.0
+offset_bottom = 95.0
+theme_override_fonts/font = ExtResource("5_tnm0g")
+theme_override_font_sizes/font_size = 20
+text = "Aurion"
