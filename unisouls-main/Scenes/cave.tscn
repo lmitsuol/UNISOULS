@@ -779,22 +779,22 @@ position = Vector2(1353, -56.999996)
 position = Vector2(1470, -361)
 
 [node name="Enemy-Bat3" parent="." instance=ExtResource("12_i8nqp")]
-position = Vector2(656, -535)
+position = Vector2(937.99994, -811.00006)
 
 [node name="Enemy-Bat4" parent="." instance=ExtResource("12_i8nqp")]
 position = Vector2(936, -491)
 
 [node name="Enemy-Bat5" parent="." instance=ExtResource("12_i8nqp")]
-position = Vector2(842, -701)
-
-[node name="Enemy-Bat6" parent="." instance=ExtResource("12_i8nqp")]
-position = Vector2(638, -872)
+position = Vector2(729, -694)
 
 [node name="Enemy-Bat7" parent="." instance=ExtResource("12_i8nqp")]
 position = Vector2(794, -993)
 
 [node name="Enemy-Wolf4" parent="." instance=ExtResource("5_g4geh")]
 position = Vector2(1315, -980)
+
+[node name="Enemy-Wolf5" parent="." instance=ExtResource("5_g4geh")]
+position = Vector2(620.99994, -865)
 
 [connection signal="body_entered" from="Interact" to="." method="_on_interact_body_entered"]
 [connection signal="body_entered" from="Interact2" to="." method="_on_interact_2_body_entered"]

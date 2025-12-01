@@ -2654,8 +2654,14 @@ position = Vector2(1799, -64)
 [node name="Enemy-Wolf4" parent="." instance=ExtResource("13_8uog6")]
 position = Vector2(4228, -66)
 
+[node name="Enemy-Wolf5" parent="." instance=ExtResource("13_8uog6")]
+position = Vector2(4968, -16.000004)
+
 [node name="Enemy-Bat4" parent="." instance=ExtResource("14_36r41")]
-position = Vector2(4642, 3)
+position = Vector2(4628, 3)
+
+[node name="Enemy-Bat5" parent="." instance=ExtResource("14_36r41")]
+position = Vector2(2882, -126.00001)
 
 [connection signal="body_entered" from="Interact" to="." method="_on_interact_body_entered"]
 [connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_body_entered"]
