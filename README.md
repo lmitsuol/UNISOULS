@@ -70,6 +70,12 @@ O jogo possui uma progressão narrativa através de fases interligadas:
 
 ---
 
+## 🎥 Trailer do Jogo
+
+Clique na tela abaixo para assistir ao video:
+
+[![Assista ao Trailer de UNISOULS](https://img.youtube.com/vi/zmuAaCuOgoE/maxresdefault.jpg)](https://youtu.be/zmuAaCuOgoE)
+
 ## 👥 Equipe e Créditos
 
 Este projeto foi desenvolvido e orientado na Universidade do Sul de Santa Catarina (UNISUL).
