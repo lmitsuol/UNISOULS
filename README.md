@@ -70,17 +70,33 @@ O jogo possui uma progressão narrativa através de fases interligadas:
 
 ---
 
+## 📸 Screenshots
+
+| Tela de Início | Floresta |
+| :---: | :---: |
+| <img src="https://github.com/user-attachments/assets/41705f31-d92c-4abf-8443-65b25df833e9" alt="foto1" width="100%"/> | <img src="https://github.com/user-attachments/assets/766c5bb1-44bb-4ef7-89af-5ea490e5ae7f" alt="foto2" width="100%"/> |
+| Conversa com NPC | Caverna |
+| <img src="https://github.com/user-attachments/assets/356fcece-9b7f-4135-807a-31faa9b89b1a" alt="foto3" width="100%"/> | <img src="https://github.com/user-attachments/assets/d6f47caf-1738-46cf-95e3-824d04f76038" alt="foto4" width="100%"/> |
+| Luta com Inimigo | Luta com Boss |
+| <img src="https://github.com/user-attachments/assets/f05868a7-de85-4c99-a222-ecfabaf1b961" alt="foto5" width="100%"/> | <img src="https://github.com/user-attachments/assets/128ec408-78bd-4dbf-9dfe-9adbb0ad275c" alt="foto6" width="100%"/> |
+| Menu de Pausa | Tela de Gameover |
+| <img src="https://github.com/user-attachments/assets/47a651f1-4fc5-4fb4-a598-0b7b3340ee43" alt="foto7" width="100%"/> | <img src="https://github.com/user-attachments/assets/61b692d5-f60a-4c1c-8c9b-412858bbde6b" alt="foto8" width="100%"/> |
+
+---
+
 ## 🎥 Trailer do Jogo
 
 Clique na tela abaixo para assistir ao video:
 
 [![Assista ao Trailer de UNISOULS](https://img.youtube.com/vi/zmuAaCuOgoE/maxresdefault.jpg)](https://youtu.be/zmuAaCuOgoE)
 
+---
+
 ## 👥 Equipe e Créditos
 
 Este projeto foi desenvolvido e orientado na Universidade do Sul de Santa Catarina (UNISUL).
 
-### Desenvolvedores
+### 👨‍💻 Desenvolvedores
 
 | Nome | RA | Conta GitHub |
 | :--- | :--- | :--- |
@@ -90,7 +106,7 @@ Este projeto foi desenvolvido e orientado na Universidade do Sul de Santa Catari
 | Victor Hasse | 10724111755 | [@victorhasse](https://github.com/victorhasse) |
 | Ester da Rosa Mariani | 10725115450 | [@Estermrn](https://github.com/Estermrn) |
 
-### Orientação (Professores da UNISUL)
+### 👨‍🏫 Orientação (Professores da UNISUL)
 
 * Prof. Cláudio Henrique da Silva
 * Prof. Saulo Popov Zambiasi
